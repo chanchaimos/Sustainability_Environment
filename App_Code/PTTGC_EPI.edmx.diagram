@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2d9b2d593eb64c5ab38fa70e062a6215" Name="Diagram1">
+        <EntityTypeShape EntityType="PTTGC_EPIModel.mOperationType" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.mTCompany" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.mTFacility" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.mTFacility_Operationtype" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.mTIndicator" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.mTProductIndicator" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.mTProductIndicatorOutput" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.mTProductIndicatorUnit" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.mTUnit" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.mTUser" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.mTUser_FacilityPermission" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.mTUserInRole" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.mTUserRole" Width="1.5" PointX="10.75" PointY="3.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.mTWorkFlow" Width="1.5" PointX="10.75" PointY="7.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="11.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.T_Logmail" Width="1.5" PointX="10.75" PointY="11.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TCheckCustomTarget" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TComplaint" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TComplaint_File" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TComplaint_Impact" Width="1.5" PointX="6.75" PointY="12.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TComplaint_Product" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TCompliance" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TCompliance_File" Width="1.5" PointX="2.75" PointY="14.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TCompliance_Product" Width="1.5" PointX="14.75" PointY="4.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TContactUs" Width="1.5" PointX="14.75" PointY="13.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TData_Type" Width="1.5" PointX="4.75" PointY="15.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEffluent_Option" Width="1.5" PointX="6.75" PointY="15.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEffluent_OtherProduct_Point" Width="1.5" PointX="8.75" PointY="15.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEffluent_Point" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEffluent_Product" Width="1.5" PointX="16.75" PointY="5.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEffluent_Product_Point" Width="1.5" PointX="10.75" PointY="16.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEffluent_Remark" Width="1.5" PointX="16.75" PointY="14.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEffluentUseProduct" Width="1.5" PointX="16.75" PointY="17.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEmission_OtherProduct_Stack" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEmission_Product" Width="1.5" PointX="0.75" PointY="18.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEmission_Product_ByType" Width="1.5" PointX="18.75" PointY="8.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEmission_Product_Stack" Width="1.5" PointX="18.75" PointY="17.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEmission_Remark" Width="1.5" PointX="2.75" PointY="19.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEmission_Stack" Width="1.5" PointX="4.75" PointY="19.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEmission_VOC" Width="1.5" PointX="12.75" PointY="19.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEmissionUseProduct" Width="1.5" PointX="20.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEPI_Forms" Width="1.5" PointX="20.75" PointY="3.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEPI_Forms_Deviate" Width="1.5" PointX="20.75" PointY="9.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEPI_Forms_File" Width="1.5" PointX="20.75" PointY="12.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEPI_Workflow" Width="1.5" PointX="14.75" PointY="20.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEPI_Workflow_History" Width="1.5" PointX="20.75" PointY="16.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TIntensity_Cylinder" Width="1.5" PointX="20.75" PointY="20.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TIntensity_Cylinder_Main" Width="1.5" PointX="22.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TIntensity_DisplayInput" Width="1.5" PointX="22.75" PointY="3.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TIntensity_Other" Width="1.5" PointX="22.75" PointY="6.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TIntensity_Remark" Width="1.5" PointX="6.75" PointY="22.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TIntensityDominator" Width="1.5" PointX="22.75" PointY="13.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TIntensityUseProduct" Width="1.5" PointX="22.75" PointY="20.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TLogbypass" Width="1.5" PointX="2.75" PointY="23.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TM_ComplaintType" Width="1.5" PointX="8.75" PointY="23.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TM_Effluent_OtherProduct" Width="1.5" PointX="22.75" PointY="23.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TM_Effluent_Unit" Width="1.5" PointX="24.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TM_Emission_OtherProduct" Width="1.5" PointX="24.75" PointY="4.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TMaterial_Product" Width="1.5" PointX="24.75" PointY="11.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TMaterial_ProductData" Width="1.5" PointX="14.75" PointY="24.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TMaterial_Remark" Width="1.5" PointX="16.75" PointY="24.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TMenu" Width="1.5" PointX="18.75" PointY="24.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TMenu_Permission" Width="1.5" PointX="24.75" PointY="19.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TProduct_Tooltip" Width="1.5" PointX="24.75" PointY="22.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TProductOutput" Width="1.5" PointX="4.75" PointY="25.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TProductOutput_Intensity" Width="1.5" PointX="24.75" PointY="25.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TReport_Indicator" Width="1.5" PointX="26.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TSpill" Width="1.5" PointX="26.75" PointY="4.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TSpill_File" Width="1.5" PointX="26.75" PointY="11.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TSpill_Product" Width="1.5" PointX="26.75" PointY="15.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TStatus_Workflow" Width="1.5" PointX="26.75" PointY="24.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TTooltip_Product" Width="1.5" PointX="0.75" PointY="27.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TUseProductOutput" Width="1.5" PointX="6.75" PointY="27.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TValidate_Data" Width="1.5" PointX="8.75" PointY="27.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TWaste_Product" Width="1.5" PointX="20.75" PointY="27.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TWaste_Product_data" Width="1.5" PointX="28.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TWaste_Remark" Width="1.5" PointX="28.75" PointY="7.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TWater_Product" Width="1.5" PointX="28.75" PointY="10.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TWater_Remark" Width="1.5" PointX="10.75" PointY="28.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.v_TM_SAP_Company" Width="1.5" PointX="28.75" PointY="17.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.v_TM_SAP_ALLFAC" Width="1.5" PointX="23.375" PointY="28.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEPI_TransferPTT" Width="1.5" PointX="25.375" PointY="28.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEPI_TransferPTT_SubFacility" Width="1.5" PointX="27.375" PointY="28.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TEPI_TransferPTT_Log" Width="1.5" PointX="29.375" PointY="20.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TAPI_User" Width="1.5" PointX="29.375" PointY="24.75" />
+        <EntityTypeShape EntityType="PTTGC_EPIModel.TViewMenu_History" Width="1.5" PointX="29.375" PointY="27.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

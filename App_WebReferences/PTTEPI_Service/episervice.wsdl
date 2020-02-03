@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="IntensityDenominatorAPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataEPI" type="tns:EPIClass_EPI" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstDataIntensity" type="tns:ArrayOfEPIClass_IntensityDenominator" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EPIClass_EPI">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EPIClass_Authentication">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CompanyCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FacilityCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="IndicatorCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Quarter" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EPIClass_Authentication">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEPIClass_IntensityDenominator">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_IntensityDenominator" nillable="true" type="tns:EPIClass_IntensityDenominator" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_IntensityDenominator">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProductID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IntensityDenominatorAPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IntensityDenominatorAPIResult" type="tns:EPIClass_Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EPIClass_Result">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsCompleted" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lstSubResult" type="tns:ArrayOfEPIClass_SubResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEPIClass_SubResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_SubResult" nillable="true" type="tns:EPIClass_SubResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_SubResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FacilityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Massage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IntensityDenominatorAPI_D3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataEPI" type="tns:EPIClass_EPI" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstDataIntensity" type="tns:ArrayOfEPIClass_IntensityDenominator" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IntensityDenominatorAPI_D3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IntensityDenominatorAPI_D3Result" type="tns:EPIClass_Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IntensityDenominatorAPI_D4">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataEPI" type="tns:EPIClass_EPI" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstDataIntensity" type="tns:ArrayOfEPIClass_IntensityDenominatorOther" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEPIClass_IntensityDenominatorOther">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_IntensityDenominatorOther" nillable="true" type="tns:EPIClass_IntensityDenominatorOther" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_IntensityDenominatorOther">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ParentProductID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sFactor" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IntensityDenominatorAPI_D4Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IntensityDenominatorAPI_D4Result" type="tns:EPIClass_Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IntensityDenominatorAPI_D5">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataEPI" type="tns:EPIClass_EPI" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstDataIntensity" type="tns:ArrayOfEPIClass_IntensityDenominator" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IntensityDenominatorAPI_D5Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IntensityDenominatorAPI_D5Result" type="tns:EPIClass_Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IntensityDenominatorAPI_D6">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataEPI" type="tns:EPIClass_EPI" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstDataIntensity" type="tns:ArrayOfEPIClass_IntensityDenominator" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IntensityDenominatorAPI_D6Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IntensityDenominatorAPI_D6Result" type="tns:EPIClass_Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WaterAPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataEPI" type="tns:EPIClass_EPI" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstDataWater" type="tns:ArrayOfEPIClass_Water" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEPIClass_Water">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_Water" nillable="true" type="tns:EPIClass_Water" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Water">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProductID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WaterAPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WaterAPIResult" type="tns:EPIClass_Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MaterialAPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataEPI" type="tns:EPIClass_EPI" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstDataMaterial" type="tns:ArrayOfEPIClass_Material" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEPIClass_Material">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_Material" nillable="true" type="tns:EPIClass_Material" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Material">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MaterialType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaterialOption" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportingBasisOption" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lstDataMaterial" type="tns:ArrayOfEPIClass_MaterialData" />
+          <s:element minOccurs="0" maxOccurs="1" name="lstDataReportingBasis" type="tns:ArrayOfEPIClass_Material_ReportingBasis" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEPIClass_MaterialData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_MaterialData" nillable="true" type="tns:EPIClass_MaterialData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_MaterialData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MaterialName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Density" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEPIClass_Material_ReportingBasis">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_Material_ReportingBasis" nillable="true" type="tns:EPIClass_Material_ReportingBasis" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Material_ReportingBasis">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProductID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MaterialAPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MaterialAPIResult" type="tns:EPIClass_Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WasteAPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataEPI" type="tns:EPIClass_EPI" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstDataWaste" type="tns:ArrayOfEPIClass_Waste" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEPIClass_Waste">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_Waste" nillable="true" type="tns:EPIClass_Waste" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Waste">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProductID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WasteAPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WasteAPIResult" type="tns:EPIClass_Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmissionAPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataEPI" type="tns:EPIClass_EPI" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstDataEmissionStack" type="tns:ArrayOfEPIClass_Emission_Stack" />
+            <s:element minOccurs="0" maxOccurs="1" name="dataEmissionVOC" type="tns:EPIClass_Emission_VOC" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEPIClass_Emission_Stack">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_Emission_Stack" nillable="true" type="tns:EPIClass_Emission_Stack" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Emission_Stack">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="StackName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lstData" type="tns:ArrayOfEPIClass_Emission_Data" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEPIClass_Emission_Data">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_Emission_Data" nillable="true" type="tns:EPIClass_Emission_Data" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Emission_Data">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProductID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Emission_VOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="VOCEmissionDataAvailable" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lstData" type="tns:ArrayOfEPIClass_Emission_Data" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EmissionAPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmissionAPIResult" type="tns:EPIClass_Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EffluentAPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataEPI" type="tns:EPIClass_EPI" />
+            <s:element minOccurs="0" maxOccurs="1" name="dataEffluent" type="tns:EPIClass_Effluent" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstDataPoint" type="tns:ArrayOfEPIClass_Effluent_Point" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EPIClass_Effluent">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MainOption" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PercentagOfWaterWithdraw" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="lstData" type="tns:ArrayOfEPIClass_Effluent_Data" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEPIClass_Effluent_Data">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_Effluent_Data" nillable="true" type="tns:EPIClass_Effluent_Data" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Effluent_Data">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProductID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEPIClass_Effluent_Point">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_Effluent_Point" nillable="true" type="tns:EPIClass_Effluent_Point" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Effluent_Point">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PointName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PointType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DischargeTo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TreamentMethod" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TreamentMethodOther" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Area" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CODOption" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="lstData" type="tns:ArrayOfEPIClass_Effluent_Data" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EffluentAPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EffluentAPIResult" type="tns:EPIClass_Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SpillAPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataEPI" type="tns:EPIClass_EPI" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstSpill" type="tns:ArrayOfEPIClass_Spill" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstDataSpill" type="tns:ArrayOfEPIClass_Spill_Data" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEPIClass_Spill">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_Spill" nillable="true" type="tns:EPIClass_Spill" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Spill">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoneSpill" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEPIClass_Spill_Data">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_Spill_Data" nillable="true" type="tns:EPIClass_Spill_Data" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Spill_Data">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SpillID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrimaryReason" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherPrimary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpillType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SpillOf" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherSpillOf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Volume" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitVolume" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SpillTo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherSpillTo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SpillBy" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SensitiveArea" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SpillDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncidentDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecoveryAction" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SpillAPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SpillAPIResult" type="tns:EPIClass_Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ComplianceAPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataEPI" type="tns:EPIClass_EPI" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstCompliance" type="tns:ArrayOfEPIClass_Compliance" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstDataCompliance" type="tns:ArrayOfEPIClass_Compliance_Data" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEPIClass_Compliance">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_Compliance" nillable="true" type="tns:EPIClass_Compliance" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Compliance">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoneCompliance" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEPIClass_Compliance_Data">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_Compliance_Data" nillable="true" type="tns:EPIClass_Compliance_Data" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Compliance_Data">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ComplianceID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IssueDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssueBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorrectiveAction" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ComplianceAPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ComplianceAPIResult" type="tns:EPIClass_Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ComplaintAPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataEPI" type="tns:EPIClass_EPI" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstComplaint" type="tns:ArrayOfEPIClass_Complaint" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstDataComplaint" type="tns:ArrayOfEPIClass_Complaint_Data" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEPIClass_Complaint">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_Complaint" nillable="true" type="tns:EPIClass_Complaint" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Complaint">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoneComplaint" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEPIClass_Complaint_Data">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_Complaint_Data" nillable="true" type="tns:EPIClass_Complaint_Data" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Complaint_Data">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ComplaintID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IssueDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssueBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorrectiveAction" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ComplaintAPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ComplaintAPIResult" type="tns:EPIClass_Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UPayment_WaterAPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Login" type="tns:EPIClass_Authentication" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstDataWater" type="tns:ArrayOfEPIClass_Water_UPayment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEPIClass_Water_UPayment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_Water_UPayment" nillable="true" type="tns:EPIClass_Water_UPayment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_Water_UPayment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FacilityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Year" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Month" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UPayment_WaterAPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UPayment_WaterAPIResult" type="tns:EPIClass_UPayment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EPIClass_UPayment">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsCompleted" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lstResult" type="tns:ArrayOfEPIClass_UPayment_Result" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEPIClass_UPayment_Result">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_UPayment_Result" nillable="true" type="tns:EPIClass_UPayment_Result" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_UPayment_Result">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FacilityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Year" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Month" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RequestEditAPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataEPI" type="tns:EPIClass_EPI" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestEditAPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestEditAPIResult" type="tns:EPIClass_Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmissionIndicatorStack">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FacilityCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmissionIndicatorStackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmissionIndicatorStackResult" type="tns:ArrayOfEPIClass_IndicatorData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEPIClass_IndicatorData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EPIClass_IndicatorData" nillable="true" type="tns:EPIClass_IndicatorData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EPIClass_IndicatorData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sGrop" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEmissionIndicatorVOC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FacilityCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmissionIndicatorVOCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmissionIndicatorVOCResult" type="tns:ArrayOfEPIClass_IndicatorData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="IntensityDenominatorAPISoapIn">
+    <wsdl:part name="parameters" element="tns:IntensityDenominatorAPI" />
+  </wsdl:message>
+  <wsdl:message name="IntensityDenominatorAPISoapOut">
+    <wsdl:part name="parameters" element="tns:IntensityDenominatorAPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="IntensityDenominatorAPI_D3SoapIn">
+    <wsdl:part name="parameters" element="tns:IntensityDenominatorAPI_D3" />
+  </wsdl:message>
+  <wsdl:message name="IntensityDenominatorAPI_D3SoapOut">
+    <wsdl:part name="parameters" element="tns:IntensityDenominatorAPI_D3Response" />
+  </wsdl:message>
+  <wsdl:message name="IntensityDenominatorAPI_D4SoapIn">
+    <wsdl:part name="parameters" element="tns:IntensityDenominatorAPI_D4" />
+  </wsdl:message>
+  <wsdl:message name="IntensityDenominatorAPI_D4SoapOut">
+    <wsdl:part name="parameters" element="tns:IntensityDenominatorAPI_D4Response" />
+  </wsdl:message>
+  <wsdl:message name="IntensityDenominatorAPI_D5SoapIn">
+    <wsdl:part name="parameters" element="tns:IntensityDenominatorAPI_D5" />
+  </wsdl:message>
+  <wsdl:message name="IntensityDenominatorAPI_D5SoapOut">
+    <wsdl:part name="parameters" element="tns:IntensityDenominatorAPI_D5Response" />
+  </wsdl:message>
+  <wsdl:message name="IntensityDenominatorAPI_D6SoapIn">
+    <wsdl:part name="parameters" element="tns:IntensityDenominatorAPI_D6" />
+  </wsdl:message>
+  <wsdl:message name="IntensityDenominatorAPI_D6SoapOut">
+    <wsdl:part name="parameters" element="tns:IntensityDenominatorAPI_D6Response" />
+  </wsdl:message>
+  <wsdl:message name="WaterAPISoapIn">
+    <wsdl:part name="parameters" element="tns:WaterAPI" />
+  </wsdl:message>
+  <wsdl:message name="WaterAPISoapOut">
+    <wsdl:part name="parameters" element="tns:WaterAPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialAPISoapIn">
+    <wsdl:part name="parameters" element="tns:MaterialAPI" />
+  </wsdl:message>
+  <wsdl:message name="MaterialAPISoapOut">
+    <wsdl:part name="parameters" element="tns:MaterialAPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="WasteAPISoapIn">
+    <wsdl:part name="parameters" element="tns:WasteAPI" />
+  </wsdl:message>
+  <wsdl:message name="WasteAPISoapOut">
+    <wsdl:part name="parameters" element="tns:WasteAPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmissionAPISoapIn">
+    <wsdl:part name="parameters" element="tns:EmissionAPI" />
+  </wsdl:message>
+  <wsdl:message name="EmissionAPISoapOut">
+    <wsdl:part name="parameters" element="tns:EmissionAPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="EffluentAPISoapIn">
+    <wsdl:part name="parameters" element="tns:EffluentAPI" />
+  </wsdl:message>
+  <wsdl:message name="EffluentAPISoapOut">
+    <wsdl:part name="parameters" element="tns:EffluentAPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="SpillAPISoapIn">
+    <wsdl:part name="parameters" element="tns:SpillAPI" />
+  </wsdl:message>
+  <wsdl:message name="SpillAPISoapOut">
+    <wsdl:part name="parameters" element="tns:SpillAPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="ComplianceAPISoapIn">
+    <wsdl:part name="parameters" element="tns:ComplianceAPI" />
+  </wsdl:message>
+  <wsdl:message name="ComplianceAPISoapOut">
+    <wsdl:part name="parameters" element="tns:ComplianceAPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="ComplaintAPISoapIn">
+    <wsdl:part name="parameters" element="tns:ComplaintAPI" />
+  </wsdl:message>
+  <wsdl:message name="ComplaintAPISoapOut">
+    <wsdl:part name="parameters" element="tns:ComplaintAPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="UPayment_WaterAPISoapIn">
+    <wsdl:part name="parameters" element="tns:UPayment_WaterAPI" />
+  </wsdl:message>
+  <wsdl:message name="UPayment_WaterAPISoapOut">
+    <wsdl:part name="parameters" element="tns:UPayment_WaterAPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="RequestEditAPISoapIn">
+    <wsdl:part name="parameters" element="tns:RequestEditAPI" />
+  </wsdl:message>
+  <wsdl:message name="RequestEditAPISoapOut">
+    <wsdl:part name="parameters" element="tns:RequestEditAPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmissionIndicatorStackSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmissionIndicatorStack" />
+  </wsdl:message>
+  <wsdl:message name="GetEmissionIndicatorStackSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmissionIndicatorStackResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmissionIndicatorVOCSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmissionIndicatorVOC" />
+  </wsdl:message>
+  <wsdl:message name="GetEmissionIndicatorVOCSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmissionIndicatorVOCResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EPIServiceSoap">
+    <wsdl:operation name="IntensityDenominatorAPI">
+      <wsdl:input message="tns:IntensityDenominatorAPISoapIn" />
+      <wsdl:output message="tns:IntensityDenominatorAPISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IntensityDenominatorAPI_D3">
+      <wsdl:input message="tns:IntensityDenominatorAPI_D3SoapIn" />
+      <wsdl:output message="tns:IntensityDenominatorAPI_D3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IntensityDenominatorAPI_D4">
+      <wsdl:input message="tns:IntensityDenominatorAPI_D4SoapIn" />
+      <wsdl:output message="tns:IntensityDenominatorAPI_D4SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IntensityDenominatorAPI_D5">
+      <wsdl:input message="tns:IntensityDenominatorAPI_D5SoapIn" />
+      <wsdl:output message="tns:IntensityDenominatorAPI_D5SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IntensityDenominatorAPI_D6">
+      <wsdl:input message="tns:IntensityDenominatorAPI_D6SoapIn" />
+      <wsdl:output message="tns:IntensityDenominatorAPI_D6SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WaterAPI">
+      <wsdl:input message="tns:WaterAPISoapIn" />
+      <wsdl:output message="tns:WaterAPISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MaterialAPI">
+      <wsdl:input message="tns:MaterialAPISoapIn" />
+      <wsdl:output message="tns:MaterialAPISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WasteAPI">
+      <wsdl:input message="tns:WasteAPISoapIn" />
+      <wsdl:output message="tns:WasteAPISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmissionAPI">
+      <wsdl:input message="tns:EmissionAPISoapIn" />
+      <wsdl:output message="tns:EmissionAPISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EffluentAPI">
+      <wsdl:input message="tns:EffluentAPISoapIn" />
+      <wsdl:output message="tns:EffluentAPISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SpillAPI">
+      <wsdl:input message="tns:SpillAPISoapIn" />
+      <wsdl:output message="tns:SpillAPISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ComplianceAPI">
+      <wsdl:input message="tns:ComplianceAPISoapIn" />
+      <wsdl:output message="tns:ComplianceAPISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ComplaintAPI">
+      <wsdl:input message="tns:ComplaintAPISoapIn" />
+      <wsdl:output message="tns:ComplaintAPISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UPayment_WaterAPI">
+      <wsdl:input message="tns:UPayment_WaterAPISoapIn" />
+      <wsdl:output message="tns:UPayment_WaterAPISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestEditAPI">
+      <wsdl:input message="tns:RequestEditAPISoapIn" />
+      <wsdl:output message="tns:RequestEditAPISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmissionIndicatorStack">
+      <wsdl:input message="tns:GetEmissionIndicatorStackSoapIn" />
+      <wsdl:output message="tns:GetEmissionIndicatorStackSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmissionIndicatorVOC">
+      <wsdl:input message="tns:GetEmissionIndicatorVOCSoapIn" />
+      <wsdl:output message="tns:GetEmissionIndicatorVOCSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EPIServiceSoap" type="tns:EPIServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IntensityDenominatorAPI">
+      <soap:operation soapAction="http://tempuri.org/IntensityDenominatorAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IntensityDenominatorAPI_D3">
+      <soap:operation soapAction="http://tempuri.org/IntensityDenominatorAPI_D3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IntensityDenominatorAPI_D4">
+      <soap:operation soapAction="http://tempuri.org/IntensityDenominatorAPI_D4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IntensityDenominatorAPI_D5">
+      <soap:operation soapAction="http://tempuri.org/IntensityDenominatorAPI_D5" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IntensityDenominatorAPI_D6">
+      <soap:operation soapAction="http://tempuri.org/IntensityDenominatorAPI_D6" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WaterAPI">
+      <soap:operation soapAction="http://tempuri.org/WaterAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaterialAPI">
+      <soap:operation soapAction="http://tempuri.org/MaterialAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WasteAPI">
+      <soap:operation soapAction="http://tempuri.org/WasteAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmissionAPI">
+      <soap:operation soapAction="http://tempuri.org/EmissionAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EffluentAPI">
+      <soap:operation soapAction="http://tempuri.org/EffluentAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SpillAPI">
+      <soap:operation soapAction="http://tempuri.org/SpillAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComplianceAPI">
+      <soap:operation soapAction="http://tempuri.org/ComplianceAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComplaintAPI">
+      <soap:operation soapAction="http://tempuri.org/ComplaintAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UPayment_WaterAPI">
+      <soap:operation soapAction="http://tempuri.org/UPayment_WaterAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestEditAPI">
+      <soap:operation soapAction="http://tempuri.org/RequestEditAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmissionIndicatorStack">
+      <soap:operation soapAction="http://tempuri.org/GetEmissionIndicatorStack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmissionIndicatorVOC">
+      <soap:operation soapAction="http://tempuri.org/GetEmissionIndicatorVOC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EPIServiceSoap12" type="tns:EPIServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IntensityDenominatorAPI">
+      <soap12:operation soapAction="http://tempuri.org/IntensityDenominatorAPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IntensityDenominatorAPI_D3">
+      <soap12:operation soapAction="http://tempuri.org/IntensityDenominatorAPI_D3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IntensityDenominatorAPI_D4">
+      <soap12:operation soapAction="http://tempuri.org/IntensityDenominatorAPI_D4" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IntensityDenominatorAPI_D5">
+      <soap12:operation soapAction="http://tempuri.org/IntensityDenominatorAPI_D5" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IntensityDenominatorAPI_D6">
+      <soap12:operation soapAction="http://tempuri.org/IntensityDenominatorAPI_D6" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WaterAPI">
+      <soap12:operation soapAction="http://tempuri.org/WaterAPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaterialAPI">
+      <soap12:operation soapAction="http://tempuri.org/MaterialAPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WasteAPI">
+      <soap12:operation soapAction="http://tempuri.org/WasteAPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmissionAPI">
+      <soap12:operation soapAction="http://tempuri.org/EmissionAPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EffluentAPI">
+      <soap12:operation soapAction="http://tempuri.org/EffluentAPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SpillAPI">
+      <soap12:operation soapAction="http://tempuri.org/SpillAPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComplianceAPI">
+      <soap12:operation soapAction="http://tempuri.org/ComplianceAPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComplaintAPI">
+      <soap12:operation soapAction="http://tempuri.org/ComplaintAPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UPayment_WaterAPI">
+      <soap12:operation soapAction="http://tempuri.org/UPayment_WaterAPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestEditAPI">
+      <soap12:operation soapAction="http://tempuri.org/RequestEditAPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmissionIndicatorStack">
+      <soap12:operation soapAction="http://tempuri.org/GetEmissionIndicatorStack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmissionIndicatorVOC">
+      <soap12:operation soapAction="http://tempuri.org/GetEmissionIndicatorVOC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EPIService">
+    <wsdl:port name="EPIServiceSoap" binding="tns:EPIServiceSoap">
+      <soap:address location="http://pttgweb2.pttgrp.com/EPI/EPIService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EPIServiceSoap12" binding="tns:EPIServiceSoap12">
+      <soap12:address location="http://pttgweb2.pttgrp.com/EPI/EPIService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,6 @@
+﻿[11:38:19] :: 
+Error Message: An error occurred while updating the entries. See the inner exception for details. System.Data.Entity.Infrastructure.DbUpdateException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at epi_input_materials.saveToDB(CSaveToDB arrData) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\epi_input_materials.aspx.cs:line 602
+ 
+******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+

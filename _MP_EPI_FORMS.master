@@ -1,0 +1,1285 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/_MP_Front.master" AutoEventWireup="true" CodeFile="_MP_EPI_FORMS.master.cs" Inherits="_MP_EPI_FORMS" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="Server">
+    <style>
+        table.dataTable thead th {
+            background-color: #9cb726 !important;
+            color: #fff !important;
+        }
+
+        /*table.TheadFile thead th{
+            background-color: #2e6ca6 !important;
+        }*/
+        tr > th {
+            padding-right: 0 !important;
+        }
+
+        .cTotalYY {
+            background-color: #dbea97 !important;
+        }
+        /*Total Y TotalAll Y */
+
+        .cTotalYN {
+            background-color: #ffedc4 !important;
+        }
+        /*Total Y TotalAll N */
+        .cTarget {
+            background-color: #00AEEF;
+        }
+
+        .cModal {
+            background-color: #4eb3f0;
+            color: white;
+        }
+
+        #divContent table {
+            margin-top: -1px !important;
+        }
+
+        .table-responsive {
+            max-height: 400px !important;
+            overflow: auto !important;
+            margin-bottom: 10px !important;
+        }
+
+        table thead th:not(:nth-child(1)) {
+            z-index: 3 !important;
+        }
+
+        table thead th:nth-child(1) {
+            z-index: 4 !important;
+        }
+
+        table tbody td:nth-child(1) {
+            z-index: 2 !important;
+        }
+
+        table tbody td:not(:nth-child(1)) {
+            z-index: 1 !important;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="cphHead" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="Server">
+    <div class="content" style="background-color: #fff; clear: both; opacity: 0.9; filter: alpha(opacity=90);">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group col-lg-3">
+                    <label for="ddlIndicator">Indicator</label>
+                    <select class="form-control" id="ddlIndicator"></select>
+                </div>
+                <div class="form-group col-lg-2">
+                    <label for="ddlIndicator">Operation type</label>
+                    <select class="form-control" id="ddlOperationType">
+                    </select>
+                </div>
+                <div class="form-group col-lg-2">
+                    <label for="ddlIndicator">Sub-facility</label>
+                    <select class="form-control" id="ddlFacility">
+                    </select>
+                </div>
+                <div class="form-group col-lg-5 ">
+                    <label for="ddlYear">&nbsp;</label>
+                    <div class="form-inline">
+
+                        <asp:DropDownList ID="ddlYear" CssClass="form-control" runat="server" />
+                        <div class="form-group form-inline">
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoQ_1" name="rdoQ" value="1">
+                                <label for="rdoQ_1">Q1</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoQ_2" name="rdoQ" value="2">
+                                <label for="rdoQ_2">Q2</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoQ_3" name="rdoQ" value="3">
+                                <label for="rdoQ_3">Q3</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoQ_4" name="rdoQ" value="4">
+                                <label for="rdoQ_4">Q4</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-info" onclick="LoadDataCheckddl()">Show</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <asp:ContentPlaceHolder ID="cphBody" runat="server"></asp:ContentPlaceHolder>
+            </div>
+            <div class="col-xs-12 text-center" id="dvbtn">
+                <button class="btn btn-info" onclick="Checkddl(0)" id="btnSaveDraft" type="button">Save Draft</button>
+                <button class="btn btn-primary" onclick="ModalShow(1)" id="btnSubmit" type="button">Submit</button>
+                <button class="btn btn-warning" onclick="ModalShow(24)" id="btnRecall" type="button">Recall</button>
+                <button class="btn btn-primary" onclick="Checkddl(9999)" id="btnSave" type="button" style="display: none;">Save Data</button>
+                <button class="btn btn-warning" onclick="ModalShow(2)" id="btnRequest" type="button" style="display: none;">Request Edit</button>
+                <button class="btn btn-warning" onclick="ModalShow(27)" id="btnApprove" type="button" style="display: none;">Approve with edit content</button>
+
+            </div>
+        </div>
+
+    </div>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cphScript" runat="Server">
+    <asp:HiddenField ID="hdfsIndicator" runat="server" />
+    <asp:HiddenField ID="hdfsOperationType" runat="server" />
+    <asp:HiddenField ID="hdfsFacility" runat="server" />
+    <asp:HiddenField ID="hdfsYear" runat="server" />
+    <asp:HiddenField ID="hdfsStatus" runat="server" />
+    <asp:HiddenField ID="hdfsddlOperationType" runat="server" />
+    <asp:HiddenField ID="hdfsddlFacility" runat="server" />
+    <asp:HiddenField ID="hdfsddlYear" runat="server" />
+    <asp:HiddenField ID="hdfsddlIndicator" runat="server" />
+    <asp:HiddenField ID="hdfIsAdmin" runat="server" />
+    <asp:HiddenField ID="hdfPRMSMaster" runat="server" />
+    <asp:HiddenField ID="hdfRole" runat="server" />
+    <div id="popmonth" class="modal fade col-xs-12" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header csetpop">
+                    <h4 class="modal-title" id="myModalLabel"><i class="fa fa-file-text-o"></i>&nbsp;Month</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="divPopContent">
+                        <div class="form-group">
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoM_1" name="rdoM" value="1">
+                                <label for="rdoM_1">January</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoM_2" name="rdoM" value="2">
+                                <label for="rdoM_2">February</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoM_3" name="rdoM" value="3">
+                                <label for="rdoM_3">March</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoM_4" name="rdoM" value="4">
+                                <label for="rdoM_4">April</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoM_5" name="rdoM" value="5">
+                                <label for="rdoM_5">May</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoM_6" name="rdoM" value="6">
+                                <label for="rdoM_6">June</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoM_7" name="rdoM" value="7">
+                                <label for="rdoM_7">July</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoM_8" name="rdoM" value="8">
+                                <label for="rdoM_8">August</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoM_9" name="rdoM" value="9">
+                                <label for="rdoM_9">September</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoM_10" name="rdoM" value="10">
+                                <label for="rdoM_10">October</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoM_11" name="rdoM" value="11">
+                                <label for="rdoM_11">November</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoM_12" name="rdoM" value="12">
+                                <label for="rdoM_12">December</label>
+                            </div>
+                        </div>
+                        <div class="form-group" id="dvComment" style="display: none;">
+                            <textarea rows="5" name="txtsComment" id="txtsComment" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div id="dvModel" class="text-center">
+                        <button class="btn btn-info" id="btnSaveModal" type="button">Submit</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popmonthRecall" class="modal fade col-xs-12" tabindex="-1" role="dialog" aria-labelledby="myModalLabelRecall" aria-hidden="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header csetpop">
+                    <h4 class="modal-title" id="myModalLabelRecall"><i class="fa fa-file-text-o"></i>&nbsp;Month</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="divPopContentRecall">
+                        <div class="form-group">
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMRecall_1" name="rdoMRecall" value="1">
+                                <label for="rdoMRecall_1">January</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMRecall_2" name="rdoMRecall" value="2">
+                                <label for="rdoMRecall_2">February</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMRecall_3" name="rdoMRecall" value="3">
+                                <label for="rdoMRecall_3">March</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMRecall_4" name="rdoMRecall" value="4">
+                                <label for="rdoMRecall_4">April</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMRecall_5" name="rdoMRecall" value="5">
+                                <label for="rdoMRecall_5">May</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMRecall_6" name="rdoMRecall" value="6">
+                                <label for="rdoMRecall_6">June</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMRecall_7" name="rdoMRecall" value="7">
+                                <label for="rdoMRecall_7">July</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMRecall_8" name="rdoMRecall" value="8">
+                                <label for="rdoMRecall_8">August</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMRecall_9" name="rdoMRecall" value="9">
+                                <label for="rdoMRecall_9">September</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMRecall_10" name="rdoMRecall" value="10">
+                                <label for="rdoMRecall_10">October</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMRecall_11" name="rdoMRecall" value="11">
+                                <label for="rdoMRecall_11">November</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMRecall_12" name="rdoMRecall" value="12">
+                                <label for="rdoMRecall_12">December</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div id="dvModelRecall" class="text-center">
+                        <button class="btn btn-info" id="btnSaveModalRecall" type="button">Submit</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popmonthEdit" class="modal fade col-xs-12" tabindex="-1" role="dialog" aria-labelledby="myModalLabelEdit" aria-hidden="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header csetpop">
+                    <h4 class="modal-title" id="myModalLabelEdit"><i class="fa fa-file-text-o"></i>&nbsp;Month</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="divPopContentEdit">
+                        <div class="form-group">
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMEdit_1" name="rdoMEdit" value="1">
+                                <label for="rdoMEdit_1">January</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMEdit_2" name="rdoMEdit" value="2">
+                                <label for="rdoMEdit_2">February</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMEdit_3" name="rdoMEdit" value="3">
+                                <label for="rdoMEdit_3">March</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMEdit_4" name="rdoMEdit" value="4">
+                                <label for="rdoMEdit_4">April</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMEdit_5" name="rdoMEdit" value="5">
+                                <label for="rdoMEdit_5">May</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMEdit_6" name="rdoMEdit" value="6">
+                                <label for="rdoMEdit_6">June</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMEdit_7" name="rdoMEdit" value="7">
+                                <label for="rdoMEdit_7">July</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMEdit_8" name="rdoMEdit" value="8">
+                                <label for="rdoMEdit_8">August</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMEdit_9" name="rdoMEdit" value="9">
+                                <label for="rdoMEdit_9">September</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMEdit_10" name="rdoMEdit" value="10">
+                                <label for="rdoMEdit_10">October</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMEdit_11" name="rdoMEdit" value="11">
+                                <label for="rdoMEdit_11">November</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoMEdit_12" name="rdoMEdit" value="12">
+                                <label for="rdoMEdit_12">December</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div id="dvModelEdit" class="text-center">
+                        <button class="btn btn-info" id="btnSaveModalEdit" type="button">Submit</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popValidate" class="modal fade col-xs-12" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #f0ad4e;">
+                    <h4 class="modal-title" style="color: #fff;">Warning</h4>
+
+                </div>
+                <div class="modal-body">
+                    <div id="divPopContentValidate">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div id="dvModelValidate" class="text-right">
+                        <button class="btn btn-info" type="button" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popDeviate" class="modal fade col-xs-12" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #286090;">
+                    <h4 class="modal-title" style="color: #fff;">Remark on deviation data</h4>
+
+                </div>
+                <div class="modal-body">
+                    <div id="divPopDeviate">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <button id="btnSubmitDeviate" class="btn btn-info" type="button">Submit</button>
+                        <button id="btnCancelDeviate" class="btn btn-default" type="button" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div id="popDetail" class="modal fade col-xs-12" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+        <div class="modal-dialog" role="document" style="width: 60%;">
+            <div class="modal-content">
+                <div class="modal-header cModal">
+                    <h4 class="modal-title">History</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="divPopContentDetail">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="table-responsive">
+                                    <table id="tbDetail" class="table dataTable table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="dt-head-center dissort" style="width: 10%;">Date</th>
+                                                <th class="dt-head-center dissort" style="width: 15%;">Status</th>
+                                                <th class="dt-head-center dissort" style="width: 15%;">Month</th>
+                                                <th class="dt-head-center dissort" style="width: 30%;">Remark</th>
+                                                <th class="dt-head-center dissort" style="width: 15%;">Action By</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div id="dvModelDetail" class="text-right">
+                        <button class="btn" type="button" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popDeviateRemark" class="modal fade col-xs-12" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+        <div class="modal-dialog" role="document" style="width: 60%;">
+            <div class="modal-content">
+                <div class="modal-header cModal">
+                    <h4 class="modal-title">Deviate History</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="divPopContentDeviateRemark">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="table-responsive">
+                                    <table id="tbDeviateRemark" class="table dataTable table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="dt-head-center dissort" style="width: 20%;">Date</th>
+                                                <th class="dt-head-center dissort" style="width: 10%;">Month</th>
+                                                <th class="dt-head-center dissort" style="width: 30%;">Remark</th>
+                                                <th class="dt-head-center dissort" style="width: 15%;">Action By</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div id="dvModelDeviateRemark" class="text-right">
+                        <button class="btn" type="button" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <asp:HiddenField ID="hdfsModeModal" runat="server" />
+    <script>
+        var arrlst = [];
+        var $ddlIndicator = $("select#ddlIndicator");
+        var $ddlOperationType = $("select#ddlOperationType");
+        var $ddlFacility = $("select#ddlFacility");
+        var $hdfsIndicator = $("input[id$=hdfsIndicator]");
+        var $hdfsOperationType = $("input[id$=hdfsOperationType]");
+        var $hdfsFacility = $("input[id$=hdfsFacility]");
+        var $hdfsYear = $("input[id$=hdfsYear]");
+        var $hdfsStatus = $("input[id$=hdfsStatus]");
+        var $ddlYear = $("select[id$=ddlYear]");
+        var arrrdoQ = [];
+        var nWidthTB = 2030;
+        var nWidthIndicator = 350;
+        var nWidthTD = 120;
+        var ArrInputFromTableID = [];
+        var nStatus = -1;
+        var $dvbtn = $("div#dvbtn");
+        var $btnSaveDraft = $("button#btnSaveDraft");
+        var $btnSubmit = $("button#btnSubmit");
+        var $btnRecall = $("button#btnRecall");
+        var $btnRequest = $("button#btnRequest");
+        var $btnApprove = $("button#btnApprove");
+        var IsRecall = false;
+        var arrMonth = [];
+        var arrMonthRecall = [];
+        var $hdfsddlIndicator = $("input[id$=hdfsddlIndicator]");
+        var $hdfsddlOperationType = $("input[id$=hdfsddlOperationType]");
+        var $hdfsddlFacility = $("input[id$=hdfsddlFacility]");
+        var $hdfsddlYear = $("input[id$=hdfsddlYear]");
+        var $hdfsModeModal = $("input[id$=hdfsModeModal]");
+        var ModalEdit = 2;
+        var arrMonthEdit = [];
+        var $hdfIsAdmin = $("input[id$=hdfIsAdmin]");
+        var $btnSave = $("button#btnSave");
+        var lstStatus = [];
+        var lstProductDeviate = [];
+        var IsDeviatePass = false;
+        var $hdfPRMS = $("input[id$=hdfPRMSMaster]");
+        var $hdfRole = $("input[id$=hdfRole]");
+        $(function () {
+            SetDataMaster();
+            $("button#btnSaveModal").prop('disabled', true);
+            arrrdoQ = $.map($('input[type=checkbox][name=rdoQ]'), function (el, i) {
+                return el.value;
+            });
+            $('input[type=checkbox][name=rdoQ]').on('ifChanged', function () {
+                arrrdoQ = $.map($('input[type=checkbox][name=rdoQ]:checked'), function (el, i) {
+                    return el.value;
+                });
+                if (arrrdoQ.length == 0) {
+                    arrrdoQ = $.map($('input[type=checkbox][name=rdoQ]'), function (el, i) {
+                        return el.value;
+                    });
+                }
+                CheckboxQuarterChanged();
+            });
+            $('input[type=checkbox][name=rdoM]').on('ifChanged', function () {
+                arrMonth = [];
+                arrMonth = $.map($('input[type=checkbox][name=rdoM]:checked:not(:disabled):not(:hidden)'), function (el, i) {
+                    return el.value;
+                });
+                $("button#btnSaveModal").prop('disabled', true);
+                if (arrMonth.length > 0) {
+                    $("button#btnSaveModal").prop('disabled', false);
+                }
+            });
+            CheckEventButton();
+            $("button#btnSaveModal").click(function () {
+                var status = $(this).val();
+                if (status == 2 || status == 24) {
+                    if (CheckValidateCustom("dvComment") == true) {
+                        $("#popmonth").modal('toggle');
+
+                        setTimeout(function () { SaveData(status); }, 500);
+                    }
+                }
+                else {
+                    $("#popmonth").modal('toggle');
+                    setTimeout(function () { SaveData(status); }, 500);
+                }
+
+
+            });
+            $("#popmonth").on("shown.bs.modal", function () {
+                UpdateStatusValidateControl("dvComment", "txtsComment", "NOT_VALIDATED");
+                UnblockUI();
+            })
+            $("button#btnSubmitDeviate").click(function () {
+                var status = $(this).val();
+                if (CheckValidateCustom("divValidateDeviate")) {
+                    $.each($("div[id$=divPopDeviate] textarea"), function () {
+                        var el = $(this);
+                        var nMonth = +el.attr("id").split("_")[1];
+                        var sRemark = el.val();
+                        $.each(lstProductDeviate, function (i, data) {
+                            var dataDeviate = Enumerable.From(data.lstMonth).FirstOrDefault(null, function (w) { return w.nMonth == nMonth });
+                            if (dataDeviate != null) {
+                                dataDeviate.sRemark = sRemark;
+                            }
+                        })
+                    })
+                    setTimeout(function () { saveDeviate(lstProductDeviate, status); }, 500);
+                }
+            })
+            $("button#btnCancelDeviate").click(function () {
+                IsDeviatePass = false;
+                LoadData();
+            })
+            var objValidateComment = {};
+            objValidateComment["txtsComment"] = addValidate_notEmpty("Remark");
+            BindValidate("dvComment", objValidateComment);
+        });
+
+        function CheckboxQuarterChanged() {
+            $(".QHead_1").hide();
+            $(".QHead_2").hide();
+            $(".QHead_3").hide();
+            $(".QHead_4").hide();
+
+            nWidthTB = 0;
+            nWidthTB = (nWidthTD * 2) + nWidthIndicator;
+            if (arrrdoQ.length == 0) {
+                nWidthTB = 2030;
+            }
+            $.each(arrrdoQ, function (e, n) {
+                if (n == 1) {
+                    $(".QHead_1").show();
+                    nWidthTB = nWidthTB + (nWidthTD * 3);
+                }
+                if (n == 2) {
+                    $(".QHead_2").show();
+                    nWidthTB = nWidthTB + (nWidthTD * 3);
+                }
+                if (n == 3) {
+                    $(".QHead_3").show();
+                    nWidthTB = nWidthTB + (nWidthTD * 3);
+                }
+                if (n == 4) {
+                    $(".QHead_4").show();
+                    nWidthTB = nWidthTB + (nWidthTD * 3);
+                }
+            });
+
+            for (var i = 0; i < ArrInputFromTableID.length; i++) {
+                var el = $("table[id$=" + ArrInputFromTableID[i] + "]");
+                el.width((ArrInputFromTableID[i] == "tbAddStack" || ArrInputFromTableID[i] == "tbAddStackCEM" ? nWidthTB + (nWidthTD * 3) : nWidthTB) + "px");
+                if (el.find("tbody tr").length == 1 && el.find("tbody tr td:eq(0)").hasClass("NoFix")) {
+                    $("table#" + el.attr("id")).tableHeadFixer({ head: true });
+                } else {
+                    $("table#" + el.attr("id")).tableHeadFixer({ "left": 1, head: true });
+                }
+            }
+
+        }
+        function SetDataMaster() {
+            BlockUI();
+            $.ajax({
+                type: 'POST',
+                url: './Ashx/GenIndicator.ashx', //fileName.aspx/FunctionName
+                data: JSON.stringify({}), //Variable in function
+                beforeSend: function () {
+                    BlockUI();
+                },
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (data) {
+                    arrlst = data;
+                    if (data.sMsg == "") {
+                        var start_year = new Date().getFullYear();
+
+                        $ddlIndicator.append($("<option/>").text("- Select Indicator -").val(""))
+                        $ddlOperationType.append($("<option/>").text("- Select OperationType -").val(""))
+                        $ddlFacility.append($("<option/>").text("- Select Sub-facility -").val(""))
+                        $ddlOperationType.attr("disabled", true);
+                        $ddlFacility.attr("disabled", true);
+                        $.each(arrlst.lstIn, function () {
+                            $ddlIndicator.append($("<option/>").text(this.Indicator).val(this.ID))
+                            if (this.nOrder == 1) {
+                                $.each(this.lstOperationType, function () {
+                                    var nOrderOperationType = 1;
+                                    $ddlOperationType.append($("<option/>").text(this.Name).val(this.ID))
+                                    if (nOrderOperationType == 1) {
+
+                                        $.each(this.lstFacility, function () {
+                                            $ddlFacility.append($("<option/>").text(this.Name).val(this.ID))
+                                        });
+                                    }
+                                    nOrderOperationType++;
+                                });
+                            }
+                        });
+                        $("select#ddlYear").val(start_year)
+                        $ddlIndicator.change(function () {
+                            $ddlOperationType.find("option").remove();
+                            $ddlFacility.find("option").remove();
+                            var nVal = $(this).val();
+                            $.each(arrlst.lstIn, function () {
+                                if (nVal == this.ID) {
+                                    $ddlOperationType.append($("<option/>").text("- Select OperationType -").val(""))
+                                    $ddlFacility.attr("disabled", true);
+
+                                    if (this.lstOperationType.length > 0) {
+                                        $ddlOperationType.attr("disabled", false);
+
+                                        $.each(this.lstOperationType, function () {
+                                            var nOrderOperationType = 1;
+
+                                            $ddlOperationType.append($("<option/>").text(this.Name).val(this.ID))
+                                        });
+                                        if ($ddlIndicator.val() != 6) {
+                                            window.location.href = this.sPath;
+                                        }
+                                        $ddlOperationType.change();
+                                    }
+                                    else {
+                                        $ddlOperationType.attr("disabled", true);
+                                    }
+
+                                } else if (nVal == "" && ($ddlOperationType.val() == "" || $ddlOperationType.val() == null)) {
+                                    window.location.href = "Intensity_from.aspx";
+
+                                }
+
+                            });
+                        });
+                        $ddlOperationType.change(function () {
+                            $ddlFacility.find("option").remove();
+                            var nVal = $(this).val();
+
+                            $ddlFacility.attr("disabled", true);
+                            $ddlFacility.append($("<option/>").text("- Select Sub-facility -").val(""))
+                            $.each(arrlst.lstIn, function () {
+                                if ($ddlIndicator.val() == this.ID) {
+
+                                    $.each(this.lstOperationType, function () {
+                                        if (nVal == this.ID) {
+
+                                            if (this.lstFacility.length > 0) {
+                                                $ddlFacility.attr("disabled", false);
+                                                $.each(this.lstFacility, function () {
+                                                    $ddlFacility.append($("<option/>").text(this.Name).val(this.ID))
+                                                });
+
+                                            }
+                                            else {
+                                                $ddlFacility.attr("disabled", true);
+                                            }
+                                            if ($ddlIndicator.val() == 6) {
+                                                window.location.href = this.sPath;
+                                            }
+
+                                        }
+                                        else if (nVal == "" && $ddlIndicator.val() == "") {
+                                            window.location.href = "Intensity_from.aspx";
+
+                                        }
+                                    });
+                                }
+
+                            });
+                        });
+                    }
+                    else {
+                        if (SysProcess.SessionExpired == data.sStatus) {
+                            //PopupLogin();
+                        }
+                        else {
+                            DialogWarning(DialogHeader.Warning, data.sMsg);
+                        }
+                    }
+
+                },
+                complete: function (data) {
+                    UnblockUI();
+                    if ($hdfsIndicator.val() != "") {
+                        $ddlIndicator.val($hdfsIndicator.val());
+                        $ddlFacility.find("option").remove();
+                        $ddlOperationType.find("option").remove();
+                        $ddlOperationType.append($("<option/>").text("- Select OperationType -").val(""))
+                        $ddlFacility.append($("<option/>").text("- Select Sub-facility-").val(""))
+                        $.each(arrlst.lstIn, function () {
+                            if ($ddlIndicator.val() == this.ID) {
+                                $ddlFacility.attr("disabled", true);
+                                if (this.lstOperationType.length > 0) {
+                                    $ddlOperationType.attr("disabled", false);
+
+                                    $.each(this.lstOperationType, function () {
+                                        var nOrderOperationType = 1;
+                                        $ddlOperationType.append($("<option/>").text(this.Name).val(this.ID))
+                                        if (this.lstFacility.length > 0) {
+                                            $ddlFacility.attr("disabled", false);
+                                            $.each(this.lstFacility, function () {
+                                                $ddlFacility.append($("<option/>").text(this.Name).val(this.ID))
+                                            });
+
+                                        }
+                                    });
+                                    $ddlOperationType.change();
+                                }
+                                else {
+                                    $ddlOperationType.attr("disabled", true);
+                                }
+                            }
+
+                        });
+                    }
+                    if ($hdfsOperationType.val() != "") {
+                        if ($hdfsOperationType.val() == "0") {
+                            $hdfsOperationType.val("");
+                        }
+                        $ddlOperationType.val($hdfsOperationType.val());
+                        $.each(arrlst.lstIn, function () {
+                            if ($ddlIndicator.val() == this.ID) {
+                                $ddlFacility.attr("disabled", true);
+                                if (this.lstOperationType.length > 0) {
+                                    $.each(this.lstOperationType, function () {
+                                        if ($ddlOperationType.val() == this.ID) {
+                                            if (this.lstFacility.length > 0) {
+                                                $ddlFacility.attr("disabled", false);
+                                                $.each(this.lstFacility, function () {
+                                                    $ddlFacility.append($("<option/>").text(this.Name).val(this.ID))
+                                                });
+                                            }
+                                        }
+
+                                    });
+                                }
+                                else {
+                                    $ddlOperationType.attr("disabled", true);
+                                }
+                            }
+
+                        });
+                        var nVal = $hdfsOperationType.val();
+
+
+                        $ddlOperationType.attr("disabled", false);
+                    }
+                    if ($hdfsFacility.val() != "" && $hdfsYear.val() != "") {
+                        $ddlFacility.val($hdfsFacility.val())
+                        $ddlYear.val($hdfsYear.val())
+                        LoadDataCheckddl();
+                    }
+
+                }
+            });
+        }
+        function CheckEventButton() {
+            $dvbtn.show();
+            $(".NoPRMS").hide();
+            $btnApprove.hide();
+            $btnRecall.hide();
+            $btnRequest.hide();
+            $btnSaveDraft.hide();
+            $btnSave.hide();
+            $btnSubmit.hide();
+            if ($hdfsddlIndicator.val() != "" && $hdfsddlOperationType.val() != "" && $hdfsddlFacility.val() != "" && $hdfsddlYear.val() != "") {
+                if (lstStatus.length > 0) {
+                    $.each(lstStatus, function (i, el) {
+                        switch (el.nStatusID) {
+                            case 0:
+                                $btnSubmit.show();
+                                $btnSaveDraft.show();
+                                $(".NoPRMS").show();
+
+                                break;
+                            case 1:
+                                $btnRecall.show();
+                                break;
+                            case 4:
+                                $btnRequest.show();
+                                break;
+                        }
+                    })
+                } else {
+                    $btnSubmit.show();
+                    $btnSaveDraft.show();
+                    $(".NoPRMS").show();
+
+                }
+                if ($hdfsStatus.val() != "") {
+                    $dvbtn.show();
+                    $btnRecall.hide();
+                    $btnSaveDraft.hide();
+                    $btnSubmit.hide();
+                    $btnRequest.hide();
+                    $btnApprove.show();
+                    $(".NoPRMS").show();
+
+                }
+                if ($hdfIsAdmin.val() == "Y") {
+                    $btnRecall.hide();
+                    $btnSaveDraft.hide();
+                    $btnSubmit.hide();
+                    $btnRequest.hide();
+                    $btnApprove.hide();
+                    $btnSave.show();
+                    $(".NoPRMS").show();
+
+                }
+                if ($hdfPRMS.val() == "0") {
+                    DialogWarningRedirect(DialogHeader.Warning, "No permission", "epi_mytask.aspx");
+                } else if ($hdfPRMS.val() == "1") {
+                    $dvbtn.hide();
+                    $(".NoPRMS").hide();
+                    $("div[id$=divContent]").find("input,select,textarea").prop("disabled", true);
+                    $("textarea").not("input[type=checkbox]").prop("disabled", true);
+                } else if ($hdfRole.val() == "4") {
+                    if ($hdfsStatus.val() == "") {
+                        $btnRecall.hide();
+                        $btnSaveDraft.hide();
+                        $btnSubmit.hide();
+                        $btnRequest.hide();
+                        $btnApprove.hide();
+                        $btnSave.show();
+                        $(".NoPRMS").show();
+                    }
+
+
+                }
+            }
+        }
+        function LoadDataCheckddl() {
+            IsDeviatePass = false;
+            arrMonth = [];
+            arrMonthRecall = [];
+            arrMonthEdit = [];
+            if ($ddlIndicator.val() != "" && $ddlOperationType.val() != "" && $ddlFacility.val() != "" && $ddlYear.val() != "0") {
+                $hdfsddlIndicator.val($ddlIndicator.val());
+                $hdfsddlOperationType.val($ddlOperationType.val());
+                $hdfsddlFacility.val($ddlFacility.val());
+                $hdfsddlYear.val($ddlYear.val());
+                LoadData();
+            }
+            else {
+                var sMsg = "";
+                if ($ddlIndicator.val() == "") {
+                    sMsg = " indicator";
+                }
+                else if ($ddlOperationType.val() == "") {
+                    sMsg = " operation type";
+                }
+                else if ($ddlFacility.val() == "") {
+                    sMsg = " Sub-facility";
+                }
+                else if ($ddlYear.val() == "0") {
+                    sMsg = "year";
+                }
+                DialogWarning(DialogHeader.Warning, "Invalid data " + sMsg + ".");
+            }
+        }
+        function Checkddl(sMode) {
+            if ($ddlIndicator.val() != "" && $ddlOperationType.val() != "" && $ddlFacility.val() != "" && $ddlYear.val() != "0") {
+                if ($ddlIndicator.val() == $hdfsddlIndicator.val() && $ddlOperationType.val() == $hdfsddlOperationType.val() && $ddlFacility.val() == $hdfsddlFacility.val() && $ddlYear.val() == $hdfsddlYear.val()) {
+                    SaveData(sMode);
+                }
+                else {
+                    var sMsg = "";
+                    if ($ddlIndicator.val() != $hdfsddlIndicator.val()) {
+                        sMsg = "indicator";
+                    }
+                    else if ($ddlOperationType.val() != $hdfsddlOperationType.val()) {
+                        sMsg = "operation type";
+                    }
+                    else if ($ddlFacility.val() != $hdfsddlFacility.val()) {
+                        sMsg = "Sub-facility";
+                    }
+                    else {
+                        sMsg = "year";
+                    }
+                    DialogWarning(DialogHeader.Warning, "Invalid data " + sMsg + ".");
+                }
+            }
+            else {
+                var sMsg = "";
+                if ($ddlIndicator.val() == "") {
+                    sMsg = "indicator";
+                }
+                else if ($ddlOperationType.val() == "") {
+                    sMsg = "operationType";
+                }
+                else if ($ddlFacility.val() == "") {
+                    sMsg = "Sub-facility";
+                }
+                else {
+                    sMsg = "year";
+                }
+                DialogWarning(DialogHeader.Warning, "Please select " + sMsg + ".");
+            }
+        }
+        function ModalShow(sMode) {
+
+            if ($ddlIndicator.val() != "" && $ddlOperationType.val() != "" && $ddlFacility.val() != "" && $ddlYear.val() != "") {
+                if ($ddlIndicator.val() == $hdfsddlIndicator.val() && $ddlOperationType.val() == $hdfsddlOperationType.val() && $ddlFacility.val() == $hdfsddlFacility.val() && $ddlYear.val() == $hdfsddlYear.val()) {
+
+                    $("button#btnSaveModal").val(sMode);
+                    if (sMode != 0) {
+                        setPopupMonth(sMode);
+                    }
+
+                }
+                else {
+                    DialogWarning(DialogHeader.Warning, "Invalid data Indicator");
+                }
+            }
+            else {
+                DialogWarning(DialogHeader.Warning, "Please select data");
+            }
+
+        }
+        function setPopupMonth(status) {
+            BlockUI();
+            $.ajax({
+                dataType: 'html',
+                type: 'POST',
+                url: './Ashx/GetMonthStatus.ashx',
+                data: { status: status, nIncID: $hdfsddlIndicator.val(), nOprtID: $hdfsddlOperationType.val(), nFacID: $hdfsddlFacility.val(), sYear: $hdfsddlYear.val() }, //Variable in function
+                beforeSend: function () {
+                    //BlockUI();
+                },
+                success: function (response) {
+                    var data = JSON.parse(response);
+                    if (data.Status == SysProcess.SessionExpired) {
+                        PopupLogin();
+                    } else if (data.Status == SysProcess.Success) {
+                        $("input[name=rdoM]").parent().parent().show();
+                        $("input[name=rdoM]").iCheck("uncheck").prop("disabled", false);
+                        $("textarea[id$=txtsComment]").val("");
+                        arrMonth.length = 0;
+                        switch (status) {
+                            case 1://Submit
+                                $.each(data.lstMonth, function (i, item) {
+                                    $("input[name=rdoM]").filter("[value=" + item + "]").iCheck("check").prop("disabled", true);
+                                });
+                                break;
+                            default:
+                                $("input[name=rdoM]").filter(function (i) {
+                                    return data.lstMonth.indexOf(i + 1) == -1;
+                                }).parent().parent().hide();
+                                break;
+                        }
+                        if (status == 2 || status == 24) {
+                            $("div#dvComment").show();
+                        }
+                        else {
+                            $("div#dvComment").hide();
+
+                        }
+                        if (status == 24) {
+                            $("button[id$=btnSaveModal]").removeClass("btn-info");
+                            $("button[id$=btnSaveModal]").addClass("btn-warning");
+                            $("button[id$=btnSaveModal]").text("Recall");
+                        }
+                        else {
+                            $("button[id$=btnSaveModal]").removeClass("btn-warning");
+                            $("button[id$=btnSaveModal]").addClass("btn-info");
+                            $("button[id$=btnSaveModal]").text("Submit");
+                        }
+                        $("#popmonth").modal('toggle');
+                    } else {
+                        DialogWarning(DialogHeader.Warning, data.Msg);
+                    }
+                },
+                error: AjaxCall.error,
+                complete: function () {
+                    //UnblockUI();
+                }
+            });
+        }
+        function Deviate(lstProduct, nStatus) {
+            var sFuncName = "check";
+            lstProduct = $.map(lstProduct, function (item) {
+                delete item.sUnit;
+                return item;
+            });
+            var lstData = {
+                lstProduct: lstProduct,
+                arrMonth: arrMonth,
+                nIncID: $hdfsddlIndicator.val(),
+                nOprtID: $hdfsddlOperationType.val(),
+                nFacID: $hdfsddlFacility.val(),
+                sYear: $hdfsddlYear.val()
+            }
+            BlockUI();
+            $.ajax({
+                dataType: 'json',
+                type: 'POST',
+                url: './Ashx/Deviate.ashx',
+                data: { funcName: sFuncName, lstData: JSON.stringify(lstData), lstProductDeviate: JSON.stringify(lstProductDeviate) }, //Variable in function
+                beforeSend: function () {
+                    //BlockUI();
+                },
+                success: function (response) {
+                    var data = response;
+                    UnblockUI();
+                    if (data.Status == SysProcess.SessionExpired) {
+                        PopupLogin();
+                    } else if (data.Status == SysProcess.Success) {
+                        if (data.IsPass) {
+                            IsDeviatePass = true;
+                            SaveData(nStatus);
+                        } else {
+                            $("button#btnSubmitDeviate").val(nStatus);
+                            lstProductDeviate = data.lstProduct;
+                            bindDeviate(data.lstMonthDeviate);
+                            setTimeout(function () { $('#popDeviate').modal({ backdrop: 'static', keyboard: false }); }, 500);
+                        }
+                    } else {
+                        DialogWarning(DialogHeader.Warning, data.Msg);
+                    }
+                },
+                error: AjaxCall.error,
+                complete: function (response) {
+                    //UnblockUI();
+                }
+            });
+        }
+        function saveDeviate(lstProductDeviate, nStatus) {
+            var sFuncName = "save";
+            BlockUI();
+            $.ajax({
+                dataType: 'json',
+                type: 'POST',
+                url: './Ashx/Deviate.ashx',
+                data: { funcName: sFuncName, lstProductDeviate: JSON.stringify(lstProductDeviate) }, //Variable in function
+                beforeSend: function () {
+                    //BlockUI();
+                },
+                success: function (response) {
+                    var data = response;
+                    if (data.Status == SysProcess.SessionExpired) {
+                        PopupLogin();
+                    } else if (data.Status == SysProcess.Success) {
+                        IsDeviatePass = true;
+                        $('#popDeviate').modal("toggle");
+                        SaveData(nStatus);
+                    } else {
+                        DialogWarning(DialogHeader.Warning, data.Msg);
+                    }
+                },
+                error: AjaxCall.error,
+                complete: function (response) {
+                    //UnblockUI();
+                }
+            });
+        }
+        function bindDeviate(lstMonth) {
+            var arrFullMonth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            $("div#divPopDeviate").empty();
+            var sHtml = '';
+            sHtml += '<div id="divValidateDeviate">';
+            $.each(lstMonth, function (i, el) {
+                var sRemark = "";
+                $.each(lstProductDeviate, function (index, item) {
+                    var data = Enumerable.From(item.lstMonth).FirstOrDefault(null, function (w) { return w.nMonth == el });
+                    if (data != null) {
+                        sRemark = data.sRemark;
+                    }
+                });
+                sHtml += ' <div class="panel panel-info">';
+                sHtml += '    <div class="panel-heading" style="cursor: pointer" data-toggle="collapse" href="#divMonth_' + el + '">';
+                sHtml += arrFullMonth[el - 1];
+                sHtml += '    </div>';
+                sHtml += '    <div id="divMonth_' + el + '" class="panel-collapse collapse in">';
+                sHtml += '        <div class="panel-body">';
+                sHtml += '<div class="form-group">';
+                sHtml += '            <textarea rows="3" name="txtDeviateRemark" id="txtDeviateRemark_' + el + '" class="form-control" placeholder="โปรดระบุเหตุผลที่ค่าแตกต่างมากกว่าหรือเท่ากับ 10 % เมื่อเทียบกับเดือนก่อนหน้า">' + sRemark + '</textarea>';
+                sHtml += '</div>';
+                sHtml += '        </div>';
+                sHtml += '    </div>';
+                sHtml += '</div>';
+            })
+            sHtml += '</div>';
+            $("div#divPopDeviate").append(sHtml);
+            var objValidate = {};
+            objValidate["txtDeviateRemark"] = addValidate_notEmpty(DialogMsg.Specify + " remark");
+            BindValidate("divValidateDeviate", objValidate);
+        }
+        function CheckValidateCustom(sContainer) {
+            var isValid = $("#" + sContainer).data('formValidation').validate().isValid();
+            if (!isValid) {
+                ScrollTopToElementsCustom($($("div#" + sContainer).data('formValidation').$invalidFields[0]).attr("id"));//$("div#" + sContainer).data('formValidation').$invalidFields[0].focus();
+            }
+            return isValid;
+        }
+
+        function ScrollTopToElementsCustom(sElementID) {
+            $('div#popDeviate').animate({ scrollTop: $("#" + sElementID).offset().top + 50 }, 'fast');
+        }
+
+        /////////************ SHOW HISTORY *************\\\\\\\\\\\\
+        function ShowHistory() {
+            BlockUI();
+            $.ajax({
+                dataType: 'html',
+                type: 'POST',
+                url: './Ashx/ShowDetailMonth.ashx',
+                data: { status: status, nIncID: $hdfsddlIndicator.val(), nOprtID: $hdfsddlOperationType.val(), nFacID: $hdfsddlFacility.val(), sYear: $hdfsddlYear.val() }, //Variable in function
+                beforeSend: function () {
+                    //BlockUI();
+                },
+                success: function (response) {
+                    var data = JSON.parse(response);
+                    if (data.Status == SysProcess.SessionExpired) {
+                        PopupLogin();
+                    } else if (data.Status == SysProcess.Success) {
+                        $("table[id$=tbDetail] tbody tr").remove();
+                        if (data.lstData != null && data.lstData.length > 0) {
+                            var htmlTD = '<tr>';
+                            htmlTD += '<td class="dt-body-center"></td>';
+                            htmlTD += '<td class="dt-body-left"></td>';
+                            htmlTD += '<td class="dt-body-center"></td>';
+                            htmlTD += '<td class="dt-body-left"></td>';
+                            htmlTD += '<td class="dt-body-left"></td>';
+                            htmlTD += '</tr>';
+
+                            $("table[id$=tbDetail] tbody").append(htmlTD);
+                            var row = $("table[id$=tbDetail] tbody").find("tr").last().clone(true);
+                            $("table[id$=tbDetail] tbody tr").remove();
+                            var nStartDataIndex = 1;
+
+                            var prms = Input("hdfPrmsMenu").val();
+                            $.each(data.lstData, function (indx, item) {
+                                $("td", row).eq(0).html(item.sDate);
+                                $("td", row).eq(1).html(item.sStatusName);
+                                $("td", row).eq(2).html(item.sMonth);
+                                $("td", row).eq(3).html(item.sRemark);
+                                $("td", row).eq(4).html(item.sActionBy);
+
+                                $("table[id$=tbDetail] tbody").append(row);
+                                row = $("table[id$=tbDetail] tbody").find("tr").last().clone(true);
+                                nStartDataIndex++;
+                            });
+
+                            //SetICheck();
+                            SetTootip();
+                            SetHoverRowColor("tbDetail");
+                            $("#popDetail").modal('toggle');
+                        }
+                        else {
+                            SetRowNoData("tbDetail", 7);
+                            $("#popDetail").modal('toggle');
+                        }
+
+                        HideLoadding();
+                    } else {
+                        DialogWarning(DialogHeader.Warning, data.Msg);
+                    }
+                },
+                error: AjaxCall.error,
+                complete: function () {
+                    UnblockUI();
+                }
+            });
+        }
+        function ShowDeviate() {
+            BlockUI();
+            $.ajax({
+                dataType: 'html',
+                type: 'POST',
+                url: './Ashx/ShowDeviate.ashx',
+                data: { status: status, nIncID: $hdfsddlIndicator.val(), nOprtID: $hdfsddlOperationType.val(), nFacID: $hdfsddlFacility.val(), sYear: $hdfsddlYear.val() }, //Variable in function
+                beforeSend: function () {
+                    //BlockUI();
+                },
+                success: function (response) {
+                    var data = JSON.parse(response);
+                    if (data.Status == SysProcess.SessionExpired) {
+                        PopupLogin();
+                    } else if (data.Status == SysProcess.Success) {
+                        $("table[id$=tbDeviateRemark] tbody tr").remove();
+                        if (data.lstData != null && data.lstData.length > 0) {
+                            var htmlTD = '<tr>';
+                            htmlTD += '<td class="dt-body-center"></td>';
+                            htmlTD += '<td class="dt-body-center"></td>';
+                            //htmlTD += '<td class="dt-body-left"></td>';
+                            htmlTD += '<td class="dt-body-left"></td>';
+                            htmlTD += '<td class="dt-body-left"></td>';
+                            htmlTD += '</tr>';
+
+                            $("table[id$=tbDeviateRemark] tbody").append(htmlTD);
+                            var row = $("table[id$=tbDeviateRemark] tbody").find("tr").last().clone(true);
+                            $("table[id$=tbDeviateRemark] tbody tr").remove();
+                            var nStartDataIndex = 1;
+
+                            var prms = Input("hdfPrmsMenu").val();
+                            $.each(data.lstData, function (indx, item) {
+                                $("td", row).eq(0).html(item.sDate);
+                                $("td", row).eq(1).html(item.sMonth);
+                                $("td", row).eq(2).html(item.sRemark);
+                                $("td", row).eq(3).html(item.sActionBy);
+                                //$("td", row).eq(4).html(item.sDate);
+
+                                $("table[id$=tbDeviateRemark] tbody").append(row);
+                                row = $("table[id$=tbDeviateRemark] tbody").find("tr").last().clone(true);
+                                nStartDataIndex++;
+                            });
+
+                            //SetICheck();
+                            SetTootip();
+                            SetHoverRowColor("tbDeviateRemark");
+                            $("#popDeviateRemark").modal('toggle');
+                        }
+                        else {
+                            SetRowNoData("tbDeviateRemark", 7);
+                            $("#popDeviateRemark").modal('toggle');
+                        }
+
+                        HideLoadding();
+                    } else {
+                        DialogWarning(DialogHeader.Warning, data.Msg);
+                    }
+                },
+                error: AjaxCall.error,
+                complete: function () {
+                    UnblockUI();
+                }
+            });
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="cphScript" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>

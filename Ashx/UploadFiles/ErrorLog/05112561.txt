@@ -1,0 +1,24 @@
+﻿[10:10:27] :: 
+Error Message: The remote name could not be resolved: 'test-hr-ws.pttgc.corp' System.Net.WebException
+Stack Trace:    at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest
+ 
+**************************************************************************************************************************************************************************************************************
+
+[10:27:08] :: 
+Error Message: Input string was not in a correct format. System.FormatException
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)   at System.Double.Parse(String s)   at epi_input_materials.SumAll(String[] M) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\epi_input_materials.aspx.cs:line 813   at epi_input_materials.saveToDB(CSaveToDB arrData) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\epi_input_materials.aspx.cs:line 606
+ 
+***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[10:27:08] :: 
+Error Message: Input string was not in a correct format. System.FormatException
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)   at System.Double.Parse(String s)   at epi_input_materials.SumAll(String[] M) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\epi_input_materials.aspx.cs:line 813   at epi_input_materials.saveToDB(CSaveToDB arrData) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\epi_input_materials.aspx.cs:line 606
+ 
+***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[10:27:38] :: 
+Error Message: Input string was not in a correct format. System.FormatException
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)   at System.Double.Parse(String s)   at epi_input_materials.SumAll(String[] M) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\epi_input_materials.aspx.cs:line 813   at epi_input_materials.saveToDB(CSaveToDB arrData) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\epi_input_materials.aspx.cs:line 606
+ 
+***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+

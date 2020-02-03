@@ -1,0 +1,120 @@
+﻿[12:13:04] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 290
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[12:21:59] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 297
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[12:22:16] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 298
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[12:22:44] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 298
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:08:28] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 319
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:10:03] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 302
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:22:31] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 303
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:23:25] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 303
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:24:50] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 303
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:26:16] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 303
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:27:06] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 303
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:27:27] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 303
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:28:26] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 303
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:28:39] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 303
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:29:12] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 303
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:30:27] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 303
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:30:39] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 303
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:33:26] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 303
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:41:58] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 303
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:42:23] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()   at System.Data.Entity.DbContext.SaveChanges()   at epi_input_intensity_2.SaveData(List`1 lst, String sStatus, String sFacility, String sYear, List`1 lstDataFile) in d:\PTTGC Environmental\SourceCode\epi_input_intensity_2.aspx.cs:line 303
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+

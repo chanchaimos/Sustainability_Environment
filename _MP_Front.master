@@ -1,0 +1,413 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/_MP_AllSource.master" AutoEventWireup="true" CodeFile="_MP_Front.master.cs" Inherits="_MP_Front" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="Server">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="Images/ico/ptt_weblogo-144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="Images/ico/ptt_weblogo-114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="Images/ico/ptt_weblogo-72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="Images/ico/ptt_weblogo-57.png" />
+    <link rel="shortcut icon" href="Images/ico/ptt_weblogo-favicon.png" />
+
+    <link href="Styles/_MP_Front.css" rel="stylesheet" />
+    <script src="Scripts/_MP_Front.js"></script>
+
+    <%--#SITE_OVERLAY--%>
+    <link href="Styles/lds-ring.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="cphHead" runat="server"></asp:ContentPlaceHolder>
+    <style type="text/css">
+        .dt-head-center {
+            background-color: lavender !important;
+        }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="Server">
+    <div id="SITE_NAVBAR">
+        <div id="INFO_SIDE">
+            <div class="info-icon">
+                <img src="Images/icon-user.png" />
+            </div>
+            <div class="info-detail">
+                <div class="info-pre">Welcome</div>
+                <div class="info-title">
+                    <asp:Literal ID="ltrFullName1" runat="server"></asp:Literal>
+                </div>
+                <div class="info-role">
+                    <asp:Literal ID="ltrActionRole1" runat="server"></asp:Literal>
+                </div>
+            </div>
+        </div>
+        <asp:Literal runat="server" ID="lrtNav_UserMenu"></asp:Literal>
+        <%--        <ul class="menu menu-user">
+            <li>
+                <a><i class="fa fa-pen-square"></i>&nbsp;Profile</a>
+            </li>
+            <li id="liChange2" runat="server">
+                <a><i class="fa fa-exchange-alt"></i>&nbsp;Change Role</a>
+                <a style="cursor: pointer;" onclick="PopDetailRole()"><i class="fa fa-exchange-alt"></i>&nbsp;Change Role</a>
+            </li>
+            <li>
+                <a onclick="Logout()" style="cursor: pointer;"><i class="fa fa-sign-out-alt"></i>&nbsp;Logout</a>
+            </li>
+        </ul>--%>
+        <div id="MENU_SIDE">
+            <asp:Literal runat="server" ID="lrtNav_menu"></asp:Literal>
+            <%--            <ul class="menu">
+                <li>
+                    <a class="active"><i class="fa fa-star"></i>&nbsp;My Task</a>
+                </li>
+                <li>
+                    <a href="Intensity_from.aspx"><i class="fa fa-clipboard-list"></i>&nbsp;Input</a>
+                </li>
+                <li>
+                    <a><i class="fa fa-paste"></i>&nbsp;Output</a>
+                </li>
+                <li>
+                    <a><i class="fa fa-eye"></i>&nbsp;Monitoring</a>
+                </li>
+                <li class="has-children">
+                    <a><i class="fa fa-cogs"></i>&nbsp;Administrator
+                    <div class="link-caret"><i class="fa fa-chevron-right"></i></div>
+                    </a>
+                    <ul class="menu-sub">
+                        <li><a class="link-back"><i class="fa fa-chevron-left"></i>&nbsp;Back</a></li>
+                        <li><a><i class="fa fa-cog"></i>&nbsp;User Info</a></li>
+                        <li><a><i class="fa fa-cog"></i>&nbsp;Workflow</a></li>
+                        <li><a href="admin_company_lst.aspx"><i class="fa fa-cog"></i>&nbsp;Organization</a></li>
+                        <li><a href="#"><i class="fa fa-cog"></i>&nbsp;Operation type</a></li>
+                        <li><a><i class="fa fa-envelope"></i>&nbsp;Contact Us</a></li>
+                    </ul>
+                </li>
+            </ul>--%>
+        </div>
+    </div>
+    <div id="SITE_CONTENT">
+        <div id="CONTENT_BLOCK">
+            <a id="MENU_CLOSE"><i class="fa fa-exchange-alt"></i></a>
+        </div>
+        <div id="HEAD">
+            <div id="TITLE">
+                <div class="container pos-relative">
+                    <ul id="LOGO">
+                        <li class="logo-pttgc"><a>
+                            <img src="Images/logo/logo-pttgc-new.png" /></a></li>
+                        <li class="title">
+                            <div class="title-main">Environmental Performance</div>
+                            <div class="title-sub">
+                                System
+                            </div>
+                        </li>
+                    </ul>
+                    <div id="dvUSer" runat="server">
+                        <div id="INFO_TOP">
+                            <div class="info-icon">
+                                <img src="Images/icon-user.png" />
+                            </div>
+                            <div class="info-detail">
+                                <div class="info-pre">Welcome</div>
+                                <div class="info-title">
+                                    <asp:Literal ID="ltrFullName2" runat="server"></asp:Literal>
+                                </div>
+                                <div class="info-role">
+                                    <asp:Literal ID="ltrActionRole2" runat="server"></asp:Literal>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a id="MENU_TRIGGER" role="button"><i class="fa fa-bars"></i></a>
+                </div>
+            </div>
+            <div id="MENU_TOP">
+                <div class="container">
+                    <asp:Literal runat="server" ID="lrtMenu"></asp:Literal>
+                    <%--     <ul class="menu">
+                        <li>
+                            <a class="active"><i class="fa fa-star"></i>&nbsp;My Task</a>
+                        </li>
+                        <li>
+                            <a href="Intensity_from.aspx"><i class="fa fa-clipboard-list"></i>&nbsp;Input</a>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-paste"></i>&nbsp;Output</a>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-eye"></i>&nbsp;Monitoring</a>
+                        </li>
+                        <li>
+                            <a href="f_ContactUs.aspx"><i class="fa fa-envelope"></i>&nbsp;Contact Us</a>
+                        </li>
+                        <li class="has-children">
+                            <a><i class="fa fa-cogs"></i>&nbsp;Administrator</a>
+                            <ul class="menu-sub">
+                                <li><a href="admin_user_info_lst.aspx"><i class="fa fa-cog"></i>&nbsp;User Info</a></li>
+                                <li><a href="admin_work_flow.aspx"><i class="fa fa-cog"></i>&nbsp;Workflow</a></li>
+                                <li><a href="admin_company_lst.aspx"><i class="fa fa-cog"></i>&nbsp;Organization</a></li>
+                                <li><a href="admin_operation_type_lst.aspx"><i class="fa fa-cog"></i>&nbsp;Operation type</a></li>
+                                <li><a href="admin_ContactUs_lst.aspx"><i class="fa fa-envelope"></i>&nbsp;Contact Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>--%>
+                    <%--                    <ul class="menu menu-user">
+                        <li>
+                            <a href="user_profile_update.aspx"><i class="fa fa-pen-square"></i>&nbsp;Profile</a>
+                        </li>
+                        <li id="liChange" runat="server">
+                            <a style="cursor: pointer;" onclick="PopDetailRole()"><i class="fa fa-exchange-alt"></i>&nbsp;Change Role</a>
+                        </li>
+                        <li>
+                            <a onclick="Logout()" style="cursor: pointer;"><i class="fa fa-sign-out-alt"></i>&nbsp;Logout</a>
+                        </li>
+                    </ul>--%>
+                </div>
+            </div>
+        </div>
+        <div id="BODY">
+            <div class="container">
+                <asp:ContentPlaceHolder ID="cphBody" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div id="FOOT">
+            <div class="container">
+                <div class="footer-area">
+                    <div class="footer-pttgc">
+                        <div class="footer-pttgc-icon">
+                            <img src="Images/logo/logo-pttgc-new.png" />
+                        </div>
+                        <div class="footer-pttgc-info">
+                            <div class="footer-pttgc-copyright">
+                                Copyright &copy; 2018,<br />
+                                PTT Global Chemical Public Company Limited All rights reserved
+                            </div>
+                            <div class="footer-pttgc-about">
+                                <div class="footer-pttgc-about-title">PTT Global Chemical Public Company Limited</div>
+                                <div class="footer-pttgc-about-address">
+                                    555/1 Energy Complex Building A, 14th - 18th Floor, Vibhavadi Rangsit Road, Chatuchak, Chatuchak, Bangkok 10900 Thailand.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-icon">
+                        <img src="Images/icon-sshe.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="SITE_OVERLAY">
+        <div class="loader">
+            <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="loader-text">Loading</div>
+        </div>
+    </div>
+    <asp:HiddenField ID="hidSelectedMenu" runat="server" />
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cphScript" runat="Server">
+    <!-- Modal -->
+    <div id="PopSetContent" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header csetpop">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="hMPTitle"></h4>
+                </div>
+                <div class="modal-body">
+                    <div id="divMPPopContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%-- Popup Session Timeout --%>
+    <div id="MPPopupSessionTimeout" class="modal modal-warning" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border-radius: 8px;">
+                <div class="modal-header" style="border-top-left-radius: 8px; border-top-right-radius: 8px;">
+                    <h4 class="modal-title">Session Expiring</h4>
+                </div>
+                <div class="modal-body">
+                    Your session is about to expire!
+                        <br />
+                    <br />
+                    <span id="CountDownHolder"></span>
+                    <br />
+                    <br />
+                    Click OK to continue your session.
+                </div>
+                <div class="modal-footer" style="border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
+                    <button type="button" class="btn btn-outline" onclick="SessionTimeout.sendKeepAlive()"><i class="glyphicon glyphicon-ok"></i>&nbsp;OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function Logout() {
+            DialogConfirm(DialogHeader.Confirm, DialogMsg.ConfirmLogout, function () { window.location = "logout.aspx" }, "");
+        }
+
+        function PopDetailRole() {
+            LoaddinProcess();
+            $.ajax({
+                dataType: "html",
+                type: AjaxCall.type,
+                url: AshxSysFunc.url,
+                data: { funcName: "changerole" },
+                success: function (response) {
+                   
+                    var data = JSON.parse(response);
+                    var ItemRole = data.lstData;
+                    var divData = '<table class="table dataTable table-bordered table-responsive table-hover">';
+                    divData += '<thead ><tr><th class="dt-head-center" style="background-color: #ecf0f8 !important;color: black !important;">Role Name</th></tr></thead>';
+                    divData += '<tbody>'
+                    var nRow = 1;
+                    if(ItemRole.length > 0 && ItemRole != null){
+                        for (var i = 0; i < ItemRole.length; i++) {
+                            divData += '<tr style="cursor:pointer" onclick="callRedirect(' + ItemRole[i].nRoleID + ')"><td class="dt-body-left">' + nRow + '. ' + ItemRole[i].sRoleName + '</td></tr>';
+                            nRow++;
+                        }
+                    }else{
+                        divData += '<tr><td class="dt-body-center" style="color: red;">NoData</td></tr>';
+                    }
+
+                    divData += '</tbody></table>';
+
+                    $("#divMPPopContent").html(divData);
+                    $("#hMPTitle").html("Role");
+                    $("#PopSetContent").modal();
+                    $('#PopSetContent').on('hidden.bs.modal', function (e) {
+                        $("#divMPPopContent").html("");
+                    });
+
+                },
+                error: AjaxCall.error,
+                complete: function (jqXHR, status) {//finaly
+                    HideLoadding();
+                }
+            });
+        }
+
+        function callRedirect(roleid) {
+            $('#PopSetContent').modal('toggle');
+            LoaddinProcess();
+            $.ajax({
+                dataType: "html",
+                type: AjaxCall.type,
+                url: AshxSysFunc.url,
+                data: { funcName: "selectedrole", param1: roleid },
+                success: function (response) {
+                    var data = JSON.parse(response);
+                    if (data.Status == SysProcess.SessionExpired) {
+                        HideLoadding();
+                        PopupLogin();
+                    }
+                    else if (data.Status == SysProcess.Success) {
+                        window.location = data.Content;
+                    }
+                    else {
+                        HideLoadding();
+                        DialogWarning(DialogHeader.Warning, data.Msg);
+                    }
+                },
+                error: AjaxCall.error,
+                complete: function (jqXHR, status) {//finaly
+
+                }
+            });
+        }
+    </script>
+
+    <%-- Session Timeout --%>
+    <script runat="server">
+
+        public string TimeOutUrl = "~/logout.aspx";
+
+        public int PopupShowDelay
+        {
+            get { return 60000 * (5); } //เวลาที่ นับใน Popup
+        }
+
+        protected string QuotedTimeOutUrl
+        {
+            get { return '"' + ResolveClientUrl(TimeOutUrl).Replace("\"", "\\\"") + '"'; }
+        }
+
+        public int getnTimeOut
+        {
+            get { return 60000 * (Session.Timeout - 6); } // เมื่อเวลาผ่านไป x - 6 จะแสดง Popup
+        }
+
+    </script>
+
+    <%-- Session Timeout Client Call --%>
+    <script>
+        window.SessionTimeout = (function() {
+            var _timeLeft, _popupTimer, _countDownTimer;
+
+            var stopTimers = function() {
+                window.clearTimeout(_popupTimer);
+                window.clearTimeout(_countDownTimer);
+            };
+
+            var updateCountDown = function() {
+                var min = Math.floor(_timeLeft / 60);
+                var sec = _timeLeft % 60;
+                if(sec < 10)
+                    sec = "0" + sec;
+                document.getElementById("CountDownHolder").innerHTML = min + ":" + sec;
+
+                if(_timeLeft > 0) {
+                    _timeLeft--;
+                    _countDownTimer = window.setTimeout(updateCountDown, 1000);
+
+                } else  {
+                    document.location =  <%= QuotedTimeOutUrl %>;
+                }            
+            };
+
+            var showPopup = function() {
+                _timeLeft = 300; //หน่วยเป็นวินาที เพื่อให้ตัดออกหน้า default อัตโนมัติหากไม่กดปุ่ม
+                updateCountDown();
+                $("#MPPopupSessionTimeout").modal();
+            };
+
+            var schedulePopup = function() {       
+                stopTimers();
+                _popupTimer = window.setTimeout(showPopup,<%= getnTimeOut %>);// set เวลาที่ต้องการให้แสดง popup เมื่อเวลาผ่านไป 15 นาที
+            };
+
+            var sendKeepAlive = function() {
+                stopTimers();
+                $("#MPPopupSessionTimeout").modal("hide");
+                CallbackServer();
+                SessionTimeout.schedulePopup();
+            };
+
+            return {
+                schedulePopup: schedulePopup,
+                sendKeepAlive: sendKeepAlive
+            };
+
+        })();
+
+        //KeepSessionAlive
+        function CallbackServer(){
+            url = "Ashx/KeepSessionAlive.ashx?";
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", url, true);
+            xmlHttp.send();          
+        }  
+        
+        $(function() {
+            SessionTimeout.schedulePopup();
+        });
+    </script>
+
+    <asp:ContentPlaceHolder ID="cphScript" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>

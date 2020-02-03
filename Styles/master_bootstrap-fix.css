@@ -1,0 +1,150 @@
+﻿.form-control[readonly] {
+    cursor: auto;
+    background-color: #FFF;
+}
+
+    .form-control[readonly]:disabled {
+        cursor: not-allowed;
+        background-color: #EEE;
+    }
+
+.form-horizontal .checkbox, .form-horizontal .radio {
+    min-height: initial;
+}
+
+.input-group-addon input[type=checkbox],
+.input-group-addon input[type=radio] {
+    margin: 4px 0 0;
+}
+
+a:focus {
+    outline: none;
+}
+
+.checkbox-inline ~ .form-control-feedback,
+.radio-inline ~ .form-control-feedback {
+    margin-left: 15px;
+}
+
+.text-left-not-xs, .text-left-not-sm, .text-left-not-md, .text-left-not-lg {
+    text-align: left;
+}
+
+.text-center-not-xs, .text-center-not-sm, .text-center-not-md, .text-center-not-lg {
+    text-align: center;
+}
+
+.text-right-not-xs, .text-right-not-sm, .text-right-not-md, .text-right-not-lg {
+    text-align: right;
+}
+
+.text-justify-not-xs, .text-justify-not-sm, .text-justify-not-md, .text-justify-not-lg {
+    text-align: justify;
+}
+
+
+/*xs*/
+@media (min-width: 550px) and (max-width: 767px) {
+    .text-left-not-xs, .text-center-not-xs, .text-right-not-xs, .text-justify-not-xs {
+        text-align: inherit;
+    }
+
+    .text-left-xs {
+        text-align: left;
+    }
+
+    .text-center-xs {
+        text-align: center;
+    }
+
+    .text-right-xs {
+        text-align: right;
+    }
+
+    .text-justify-xs {
+        text-align: justify;
+    }
+}
+
+/*sm*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .text-left-not-sm, .text-center-not-sm, .text-right-not-sm, .text-justify-not-sm {
+        text-align: inherit;
+    }
+
+    .text-left-sm {
+        text-align: left !important;
+    }
+
+    .text-center-sm {
+        text-align: center;
+    }
+
+    .text-right-sm {
+        text-align: right;
+    }
+
+    .text-justify-sm {
+        text-align: justify;
+    }
+}
+
+/*md*/
+@media (min-width: 992px) and (max-width: 1199px) {
+    .text-left-not-md, .text-center-not-md, .text-right-not-md, .text-justify-not-md {
+        text-align: inherit;
+    }
+
+    .text-left-md {
+        text-align: left !important;
+    }
+
+    .text-center-md {
+        text-align: center !important;
+    }
+
+    .text-right-md {
+        text-align: right !important;
+    }
+
+    .text-justify-md {
+        text-align: justify;
+    }
+}
+
+/*lg*/
+@media (min-width: 1200px) {
+    .text-left-not-lg, .text-center-not-lg, .text-right-not-lg, .text-justify-not-lg {
+        text-align: inherit;
+    }
+
+    .text-left-lg {
+        text-align: left;
+    }
+
+    .text-center-lg {
+        text-align: center;
+    }
+
+    .text-right-lg {
+        text-align: right;
+    }
+
+    .text-justify-lg {
+        text-align: justify;
+    }
+}
+
+.checkbox.checkbox-notext label, .radio.radio-notext label, .checkbox label:empty, .radio label:empty {
+    padding: 0;
+}
+
+.datepicker-dropdown:before {
+    top: 0;
+    margin-top: -7px;
+}
+
+.datepicker-dropdown:after {
+    top: 0;
+    margin-top: -6px;
+}

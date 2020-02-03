@@ -1,0 +1,6 @@
+﻿[13:32:51] :: 
+Error Message: Object reference not set to an instance of an object. System.NullReferenceException
+Stack Trace:    at admin_user_info_update.Add_Operation(List`1 lst_Operation, List`1 lst_Facility, List`1 lst_GroupIndicator, String sPermission, CSearch itemSearch, String[] arrDel, List`1 lstOperation_Data)
+ 
+***************************************************************************************************************************************************************************************************************************************************************************************************************************************
+

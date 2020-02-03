@@ -1,0 +1,113 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="_MP_AllSource.master.cs" Inherits="_MP_AllSource" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <%-- Font for Icon --%>
+    <link href="Styles/fontawesome-5.3.1/css/all.min.css" rel="stylesheet" />
+
+    <!-- AdminLTE -->
+    <link href="Styles/AdminLTE/AdminLTE.css" rel="stylesheet" />
+    <!-- UI -->
+    <link href="Scripts/ui/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" />
+    <!-- Bootstrap dialog -->
+    <link href="Scripts/bootstrap3-dialog-master/css/bootstrap-dialog.css" rel="stylesheet" />
+    <!-- iCheck 1.0.1 -->
+    <link href="Scripts/iCheck/all.css" rel="stylesheet" />
+    <!-- Form Validation -->
+    <link href="Scripts/FormValidation/formValidation.min.css" rel="stylesheet" />
+    <!-- Datatable -->
+    <link href="Scripts/datatables/dataTables.bootstrap.css" rel="stylesheet" />
+
+    <%-- Site CSS --%>
+    <link href="Styles/master_bootstrap-flat.css" rel="stylesheet" />
+    <link href="Styles/easy.css" rel="stylesheet" />
+
+    <!-- Custom -->
+    <link href="Styles/css/Custom/jquery-table-custom.css" rel="stylesheet" />
+    <link href="Styles/css/Custom/custom.css" rel="stylesheet" />
+    <link href="Styles/css/Custom/AjaxFileupload.css" rel="stylesheet" />
+    <%--<link type="text/css" rel="shortcut icon" href="Images/pttg-logo.png" />--%>
+    <link href="Styles/master_bootstrap-add.css" rel="stylesheet" />
+    <link href="Styles/master_bootstrap-fix.css" rel="stylesheet" />
+    <link href="Styles/master_bootstrap-flat.css" rel="stylesheet" />
+
+    <%-- JQuery Core --%>
+    <script src="Scripts/jquery-1.11.1.min.js"></script>
+
+    <script src="Scripts/jquery.reDefaultTools.js"></script>
+
+    <%-- Boostrap Core --%>
+    <link href="Styles/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="Styles/bootstrap-3.3.7-dist/html5shiv.min.js"></script>
+    <script src="Styles/bootstrap-3.3.7-dist/respond.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="Scripts/ui/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <!-- Bootstrap 3.3.5 JS -->
+    <script src="Styles/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+    <!-- bootstrap dialog -->
+    <script src="Scripts/bootstrap3-dialog-master/js/bootstrap-dialog.js"></script>
+    <!-- iCheck 1.0.1 -->
+    <script src="Scripts/iCheck/icheck.js"></script>
+    <!-- Form Validation -->
+    <script src="Scripts/FormValidation/formValidation.min.js"></script>
+    <script src="Scripts/FormValidation/bootstrap.min.js"></script>
+    <!-- InputMask -->
+    <script src="Scripts/inputmask/inputmask.js"></script>
+    <script src="Scripts/inputmask/inputmask.extensions.js"></script>
+    <script src="Scripts/inputmask/inputmask.date.extensions.js"></script>
+    <script src="Scripts/inputmask/inputmask.numeric.extensions.js"></script>
+    <script src="Scripts/inputmask/inputmask.regex.extensions.js"></script>
+    <script src="Scripts/inputmask/jquery.inputmask.js"></script>
+    <!-- UploadFile -->
+    <link href="Scripts/Fileupload/src/jquery.fileuploader.css" rel="stylesheet" />
+    <script src="Scripts/Fileupload/src/jquery.fileuploader.js"></script>
+    <!-- DatePicker -->
+    <script src="Scripts/datepicker/bootstrap-datepicker.js"></script>
+    <link href="Scripts/datepicker/datepicker3.css" rel="stylesheet" />
+    <!-- Admin LTE -->
+    <script src="Scripts/AdminLTE/app.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+
+    <!-- bootstrap-multiselect -->
+    <link href="Scripts/bootstrap-multiselect/css/bootstrap-multiselect.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>
+
+    <!-- JS LINQ -->
+    <script src="Scripts/JSLINQ-master/linq.js"></script>
+
+    <!-- System -->
+    <script src="Scripts/System/sysFunction.js"></script>
+    <script src="Scripts/System/sysAjaxToolkitUploadFiles.js"></script>
+    <script src="Scripts/System/sysAjaxGrid.js"></script>
+    <script src="Scripts/JSHeaderGrid/SetDataGridHeader.js"></script>
+
+    <!-- Fancy Box -->
+    <script src="Scripts/fancyBox/source/jquery.fancybox.js"></script>
+    <link href="Scripts/fancyBox/source/jquery.fancybox.css" rel="stylesheet" />
+    <script src="Scripts/fancyBox/source/jquery.fancybox.pack.js"></script>
+
+    <!--Freeze RowsAndCol-->
+    <script src="Scripts/FreezeTableColumnsRowsOnScroll/tableHeadFixer.js"></script>
+    <asp:ContentPlaceHolder ID="cphHead" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body id="mainBody" runat="server">
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="smgAll" runat="server" AsyncPostBackTimeout="3600" EnablePageMethods="true" EnableScriptGlobalization="true" EnableScriptLocalization="true"></asp:ScriptManager>
+
+        <asp:ContentPlaceHolder ID="cphBody" runat="server"></asp:ContentPlaceHolder>
+
+        <asp:ContentPlaceHolder ID="cphScript" runat="server"></asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

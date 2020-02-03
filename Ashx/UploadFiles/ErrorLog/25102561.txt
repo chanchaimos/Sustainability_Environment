@@ -1,0 +1,24 @@
+﻿[13:46:55] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at admin_user_info_update.SaveData(CSaveData data) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\admin_user_info_update.aspx.cs:line 727
+ 
+********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[13:47:28] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at admin_user_info_update.SaveData(CSaveData data) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\admin_user_info_update.aspx.cs:line 588
+ 
+********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[15:56:38] :: 
+Error Message: The remote name could not be resolved: 'test-hr-ws.pttgc.corp' System.Net.WebException
+Stack Trace:    at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest
+ 
+**************************************************************************************************************************************************************************************************************
+
+[15:56:48] :: 
+Error Message: The remote name could not be resolved: 'test-hr-ws.pttgc.corp' System.Net.WebException
+Stack Trace:    at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest
+ 
+**************************************************************************************************************************************************************************************************************
+

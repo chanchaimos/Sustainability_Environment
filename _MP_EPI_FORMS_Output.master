@@ -1,0 +1,456 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/_MP_Front.master" AutoEventWireup="true" CodeFile="_MP_EPI_FORMS_Output.master.cs" Inherits="_MP_EPI_FORMS_Output" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="Server">
+    <style>
+        table.dataTable thead th {
+            background-color: #9cb726 !important;
+            color: #fff !important;
+        }
+
+        tr > th {
+            padding-right: 0 !important;
+        }
+
+        .cTotalYY {
+            background-color: #dbea97 !important;
+        }
+        /*Total Y TotalAll Y */
+
+        .cTotalYN {
+            background-color: #ffedc4 !important;
+        }
+        /*Total Y TotalAll N */
+        .cTarget {
+            background-color: #00AEEF;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="cphHead" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="Server">
+    <div class="content" style="background-color: #fff; clear: both; opacity: 0.9; filter: alpha(opacity=90);">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group col-lg-3">
+                    <label for="ddlIndicator">Indicator</label>
+                    <select class="form-control" id="ddlIndicator"></select>
+                </div>
+                <div class="form-group col-lg-2">
+                    <label for="ddlIndicator">Operation type</label>
+                    <select class="form-control" id="ddlOperationType">
+                    </select>
+                </div>
+                <div class="form-group col-lg-2">
+                    <label for="ddlIndicator">Sub-facility</label>
+                    <select class="form-control" id="ddlFacility">
+                    </select>
+                </div>
+                <div class="form-group col-lg-5 ">
+                    <label for="ddlYear">&nbsp;</label>
+                    <div class="form-inline">
+                        <asp:DropDownList ID="ddlYear" CssClass="form-control" runat="server" />
+                        <div class="form-group form-inline">
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoQ_1" name="rdoQ" value="1">
+                                <label for="rdoQ_1">Q1</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoQ_2" name="rdoQ" value="2">
+                                <label for="rdoQ_2">Q2</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoQ_3" name="rdoQ" value="3">
+                                <label for="rdoQ_3">Q3</label>
+                            </div>
+                            <div class="flat-green checkbox">
+                                <input type="checkbox" id="rdoQ_4" name="rdoQ" value="4">
+                                <label for="rdoQ_4">Q4</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-info" onclick="LoadDataCheckddl()">Show</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <asp:ContentPlaceHolder ID="cphBody" runat="server"></asp:ContentPlaceHolder>
+            </div>
+            <div class="col-lg-12 text-center" id="dvbtn">
+                <button class="btn btn-primary" onclick="Checkddl(0)" id="btnSaveDraft" type="button">Save Draft</button>
+                <button class="btn btn-info" onclick="ModalShow(1)" id="btnSubmit" type="button">Submit</button>
+                <button class="btn btn-warning" onclick="ModalShow(0)" id="btnRecall" type="button">Recall</button>
+                <button class="btn btn-warning" onclick="Checkddl(9)" id="btnRequest" type="button">Request Edit</button>
+
+            </div>
+        </div>
+
+    </div>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cphScript" runat="Server">
+    <asp:HiddenField ID="hdfsIndicator" runat="server" />
+    <asp:HiddenField ID="hdfsOperationType" runat="server" />
+    <asp:HiddenField ID="hdfsFacility" runat="server" />
+    <asp:HiddenField ID="hdfsddlIndicator" runat="server" />
+    <asp:HiddenField ID="hdfsddlOperationType" runat="server" />
+    <asp:HiddenField ID="hdfsddlFacility" runat="server" />
+    <asp:HiddenField ID="hdfsddlYear" runat="server" />
+
+    <asp:HiddenField ID="hdfsModeModal" runat="server" />
+    <script>
+        var arrlst = [];
+        var $ddlIndicator = $("select#ddlIndicator");
+        var $ddlOperationType = $("select#ddlOperationType");
+        var $ddlFacility = $("select#ddlFacility");
+        var $hdfsIndicator = $("input[id$=hdfsIndicator]");
+        var $hdfsOperationType = $("input[id$=hdfsOperationType]");
+        var $hdfsFacility = $("input[id$=hdfsFacility]");
+        var $ddlYear = $("select[id$=ddlYear]");
+        var arrrdoQ = [];
+        var nWidthTB = 2030;
+        var nWidthIndicator = 350;
+        var nWidthTD = 120;
+        var ArrInputFromTableID = [];
+        var nStatus = -1;
+        var $dvbtn = $("div#dvbtn");
+        var $btnSaveDraft = $("button#btnSaveDraft");
+        var $btnSubmit = $("button#btnSubmit");
+        var $btnRecall = $("button#btnRecall");
+        var $btnRequest = $("button#btnRequest");
+        var IsRecall = false;
+        var arrMonth = [];
+        var arrMonthRecall = [];
+        var $hdfsddlIndicator = $("input[id$=hdfsFacility]");
+        var $hdfsddlOperationType = $("input[id$=hdfsddlOperationType]");
+        var $hdfsddlFacility = $("input[id$=hdfsddlFacility]");
+        var $hdfsddlYear = $("input[id$=hdfsddlYear]");
+        var $hdfsModeModal = $("input[id$=hdfsModeModal]");
+        $(function () {
+            SetDataMaster();
+            $("button#btnSaveModal").prop('disabled', true);
+            arrrdoQ = $.map($('input[type=checkbox][name=rdoQ]'), function (el, i) {
+                return el.value;
+            });
+            $('input[type=checkbox][name=rdoQ]').on('ifChanged', function () {
+                arrrdoQ = $.map($('input[type=checkbox][name=rdoQ]:checked'), function (el, i) {
+                    return el.value;
+                });
+                if (arrrdoQ.length == 0) {
+                    arrrdoQ = $.map($('input[type=checkbox][name=rdoQ]'), function (el, i) {
+                        return el.value;
+                    });
+                }
+                CheckboxQuarterChanged();
+            });
+            $('input[type=checkbox][name=rdoM]').on('ifChanged', function () {
+                arrMonth = [];
+                arrMonth = $.map($('input[type=checkbox][name=rdoM]:checked'), function (el, i) {
+                    return el.value;
+                });
+                $("button#btnSaveModal").prop('disabled', true);
+                if (arrMonth.length > 0) {
+                    $("button#btnSaveModal").prop('disabled', false);
+                }
+            });
+            $('input[type=checkbox][name=rdoMRecall]').on('ifChanged', function () {
+                arrMonthRecall = [];
+                arrMonthRecall = $.map($('input[type=checkbox][name=rdoMRecall]:checked'), function (el, i) {
+                    return el.value;
+                });
+                $("button#btnSaveModalRecall").prop('disabled', true);
+                if (arrMonthRecall.length > 0) {
+                    $("button#btnSaveModalRecall").prop('disabled', false);
+                }
+            });
+            CheckEventButton();
+        });
+
+        function CheckboxQuarterChanged() {
+            $(".QHead_1").hide();
+            $(".QHead_2").hide();
+            $(".QHead_3").hide();
+            $(".QHead_4").hide();
+
+            nWidthTB = 0;
+            nWidthTB = (nWidthTD * 2) + nWidthIndicator;
+            if (arrrdoQ.length == 0) {
+                nWidthTB = 2030;
+            }
+            $.each(arrrdoQ, function (e, n) {
+                if (n == 1) {
+                    $(".QHead_1").show();
+                    nWidthTB = nWidthTB + (nWidthTD * 3);
+                }
+                if (n == 2) {
+                    $(".QHead_2").show();
+                    nWidthTB = nWidthTB + (nWidthTD * 3);
+                }
+                if (n == 3) {
+                    $(".QHead_3").show();
+                    nWidthTB = nWidthTB + (nWidthTD * 3);
+                }
+                if (n == 4) {
+                    $(".QHead_4").show();
+                    nWidthTB = nWidthTB + (nWidthTD * 3);
+                }
+            });
+
+            for (var i = 0; i < ArrInputFromTableID.length; i++) {
+                $("table[id$=" + ArrInputFromTableID[i] + "]").width(nWidthTB + "px");
+            }
+
+        }
+
+        function SetDataMaster() {
+            BlockUI();
+            $.ajax({
+                type: 'POST',
+                url: './Ashx/GenIndicator.ashx', //fileName.aspx/FunctionName
+                data: JSON.stringify({}), //Variable in function
+                beforeSend: function () {
+                    BlockUI();
+                },
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (data) {
+                    arrlst = data;
+                    if (data.sMsg == "") {
+                        var start_year = new Date().getFullYear();
+
+                        $ddlIndicator.append($("<option/>").text("- Select Indicator -").val(""))
+                        $ddlOperationType.append($("<option/>").text("- Select OperationType -").val(""))
+                        $ddlFacility.append($("<option/>").text("- Select Sub-facility -").val(""))
+                        $ddlOperationType.attr("disabled", true);
+                        $ddlFacility.attr("disabled", true);
+                        $.each(arrlst.lstIn, function () {
+                            $ddlIndicator.append($("<option/>").text(this.Indicator).val(this.ID))
+                            if (this.nOrder == 1) {
+                                $.each(this.lstOperationType, function () {
+                                    var nOrderOperationType = 1;
+                                    $ddlOperationType.append($("<option/>").text(this.Name).val(this.ID))
+                                    if (nOrderOperationType == 1) {
+                                        $.each(this.lstFacility, function () {
+                                            $ddlFacility.append($("<option/>").text(this.Name).val(this.ID))
+                                        });
+                                    }
+                                    nOrderOperationType++;
+                                });
+                            }
+                        });
+                        $("select#ddlYear").val(start_year)
+                        $ddlIndicator.change(function () {
+                            $ddlOperationType.find("option").remove();
+                            $ddlFacility.find("option").remove();
+                            var nVal = $(this).val();
+                            if (nVal != null && nVal != "") {
+                                $.each(arrlst.lstIn, function () {
+                                    if (nVal == this.ID) {
+                                        $ddlOperationType.append($("<option/>").text("- Select OperationType -").val(""))
+                                        $ddlFacility.attr("disabled", true);
+                                        if (this.lstOperationType.length > 0) {
+                                            $ddlOperationType.attr("disabled", false);
+                                            $.each(this.lstOperationType, function () {
+                                                var nOrderOperationType = 1;
+                                                $ddlOperationType.append($("<option/>").text(this.Name).val(this.ID))
+                                                //if (nOrderOperationType == 1) {
+                                                //    $.each(this.lstFacility, function () {
+                                                //        $ddlFacility.append($("<option/>").text(this.Name).val(this.ID))
+                                                //    });
+                                                //}
+                                                //nOrderOperationType++;
+                                            });
+                                            //if ($ddlIndicator.val() != 6) {
+                                            //    window.location.href = this.sPath;
+                                            //}
+                                            $ddlOperationType.change();
+                                        }
+                                        else {
+                                            $ddlOperationType.attr("disabled", true);
+                                        }
+
+                                    }
+                                    //else if (nVal == "" && ($ddlOperationType.val() == "" || $ddlOperationType.val() == null)) {
+                                    //    window.location.href = "Intensity_from.aspx";
+
+                                    //}
+
+                                });
+                            } else {
+                                $ddlOperationType.append($("<option/>").text("- Select OperationType -").val(""))
+                                $ddlFacility.append($("<option/>").text("- Select Sub-facility -").val(""))
+                                $ddlFacility.attr("disabled", true);
+                                $ddlOperationType.attr("disabled", true);
+                            }
+                        });
+                        $ddlOperationType.change(function () {
+                            $ddlFacility.find("option").remove();
+                            var nVal = $(this).val();
+
+                            $ddlFacility.attr("disabled", true);
+                            $ddlFacility.append($("<option/>").text("- Select Sub-facility -").val(""))
+                            $.each(arrlst.lstIn, function () {
+                                if ($ddlIndicator.val() == this.ID) {
+
+                                    $.each(this.lstOperationType, function () {
+                                        if (nVal == this.ID) {
+
+                                            if (this.lstFacility.length > 0) {
+                                                $ddlFacility.attr("disabled", false);
+                                                $.each(this.lstFacility, function () {
+                                                    $ddlFacility.append($("<option/>").text(this.Name).val(this.ID))
+                                                });
+
+                                            }
+                                            else {
+                                                $ddlFacility.attr("disabled", true);
+                                            }
+                                            //if ($ddlIndicator.val() == 6) {
+                                            //    window.location.href = this.sPath;
+                                            //}
+
+                                        }
+                                        //else if (nVal == "" && $ddlIndicator.val() == "") {
+                                        //    window.location.href = "Intensity_from.aspx";
+
+                                        //}
+                                    });
+                                }
+
+                            });
+                        });
+                    }
+                    else {
+                        if (SysProcess.SessionExpired == data.sStatus) {
+                            PopupLogin();
+                        }
+                        else {
+                            DialogWarning(DialogHeader.Warning, data.sMsg);
+                        }
+                    }
+
+                },
+                complete: function (data) {
+                    UnblockUI();
+                    if ($hdfsIndicator.val() != "") {
+                        $ddlIndicator.val($hdfsIndicator.val());
+                    }
+                    if ($hdfsOperationType.val() != "") {
+                        if ($hdfsOperationType.val() == "0") {
+                            $hdfsOperationType.val("");
+                        }
+                        $ddlOperationType.val($hdfsOperationType.val());
+                        var nVal = $hdfsOperationType.val();
+                        $ddlFacility.find("option").remove();
+                        $ddlFacility.append($("<option/>").text("- Select Sub-facility -").val(""))
+                        $.each(arrlst.lstIn, function () {
+                            if ($ddlIndicator.val() == this.ID) {
+
+                                $.each(this.lstOperationType, function () {
+                                    if (nVal == this.ID) {
+
+                                        if (this.lstFacility.length > 0) {
+                                            $ddlFacility.attr("disabled", false);
+                                            $.each(this.lstFacility, function () {
+                                                $ddlFacility.append($("<option/>").text(this.Name).val(this.ID))
+                                            });
+
+                                        }
+                                        else {
+                                            $ddlFacility.attr("disabled", true);
+                                        }
+                                    }
+                                });
+                            }
+
+                        });
+                        $ddlOperationType.attr("disabled", false);
+                    }
+
+
+                }
+            });
+        }
+        function CheckEventButton() {
+            $dvbtn.show();
+            switch (nStatus) {
+                case 0: $btnRecall.hide();
+                    $btnRequest.hide();
+                    break;
+                case 1: $btnRequest.hide();
+                    $btnRecall.hide();
+                    if (IsRecall) {
+                        $btnRecall.show();
+                    }
+                    break;
+                case 4: $btnRequest.show();
+                    break;
+                default: $dvbtn.hide();
+                    break;
+            }
+        }
+        function LoadDataCheckddl() {
+            if ($ddlIndicator.val() != "" && $ddlOperationType.val() != "" && $ddlFacility.val() != "" && $ddlYear.val() != "0") {
+                $hdfsddlIndicator.val($ddlIndicator.val());
+                $hdfsddlOperationType.val($ddlOperationType.val());
+                $hdfsddlFacility.val($ddlFacility.val());
+                $hdfsddlYear.val($ddlYear.val());
+                LoadData();
+            }
+            else {
+                var sMsg = "";
+                if ($ddlIndicator.val() == "") {
+                    sMsg = " indicator";
+                }
+                else if ($ddlOperationType.val() == "") {
+                    sMsg = " operation type";
+                }
+                else if ($ddlFacility.val() == "") {
+                    sMsg = " Sub-facility";
+                }
+                else if ($ddlYear.val() == "0") {
+                    sMsg = "year";
+                }
+                DialogWarning(DialogHeader.Warning, "Invalid data " + sMsg + ".");
+            }
+        }
+        function Checkddl(sMode) {
+            if ($ddlIndicator.val() != "" && $ddlOperationType.val() != "" && $ddlFacility.val() != "" && $ddlYear.val() != "0") {
+                if ($ddlIndicator.val() == $hdfsddlIndicator.val() && $ddlOperationType.val() == $hdfsddlOperationType.val() && $ddlFacility.val() == $hdfsddlFacility.val() && $ddlYear.val() == $hdfsddlYear.val()) {
+                    SaveData(sMode);
+                }
+                else {
+                    var sMsg = "";
+                    if ($ddlIndicator.val() != $hdfsddlIndicator.val()) {
+                        sMsg = "indicator";
+                    }
+                    else if ($ddlOperationType.val() != $hdfsddlOperationType.val()) {
+                        sMsg = "operation type";
+                    }
+                    else if ($ddlFacility.val() != $hdfsddlFacility.val()) {
+                        sMsg = "Sub-facility";
+                    }
+                    else {
+                        sMsg = "year";
+                    }
+                    DialogWarning(DialogHeader.Warning, "Invalid data " + sMsg + ".");
+                }
+            }
+            else {
+                var sMsg = "";
+                if ($ddlIndicator.val() == "") {
+                    sMsg = "indicator";
+                }
+                else if ($ddlOperationType.val() == "") {
+                    sMsg = "operationType";
+                }
+                else if ($ddlFacility.val() == "") {
+                    sMsg = "Sub-facility";
+                }
+                else {
+                    sMsg = "year";
+                }
+                DialogWarning(DialogHeader.Warning, "Please select " + sMsg + ".");
+            }
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="cphScript" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>

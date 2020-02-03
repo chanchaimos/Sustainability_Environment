@@ -1,0 +1,24 @@
+﻿[09:39:45] :: 
+Error Message: An error occurred while updating the entries. See the inner exception for details. System.Data.Entity.Infrastructure.DbUpdateException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at admin_asset_update.saveToDB(DataValue dataValue) in c:\inetpub\wwwroot\PTTGC_Sustain_SHE_Dev\admin_asset_update.aspx.cs:line 241
+ 
+********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[09:40:03] :: 
+Error Message: An error occurred while updating the entries. See the inner exception for details. System.Data.Entity.Infrastructure.DbUpdateException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at admin_asset_update.saveToDB(DataValue dataValue) in c:\inetpub\wwwroot\PTTGC_Sustain_SHE_Dev\admin_asset_update.aspx.cs:line 241
+ 
+********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[09:40:14] :: 
+Error Message: An error occurred while updating the entries. See the inner exception for details. System.Data.Entity.Infrastructure.DbUpdateException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at admin_asset_update.saveToDB(DataValue dataValue) in c:\inetpub\wwwroot\PTTGC_Sustain_SHE_Dev\admin_asset_update.aspx.cs:line 241
+ 
+********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[09:41:03] :: 
+Error Message: An error occurred while updating the entries. See the inner exception for details. System.Data.Entity.Infrastructure.DbUpdateException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at admin_asset_update.saveToDB(DataValue dataValue) in c:\inetpub\wwwroot\PTTGC_Sustain_SHE_Dev\admin_asset_update.aspx.cs:line 241
+ 
+********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+

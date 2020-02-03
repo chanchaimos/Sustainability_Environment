@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<ENVIClass_ENVI xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Username>EPIUser</Username>
+  <Password>EPIUser@1234</Password>
+  <CompanyCode>10</CompanyCode>
+  <FacilityCode>012-0014-00120</FacilityCode>
+  <Year>2019</Year>
+  <IndicatorCode>004</IndicatorCode>
+  <Quarter>1</Quarter>
+  <Comment />
+</ENVIClass_ENVI>

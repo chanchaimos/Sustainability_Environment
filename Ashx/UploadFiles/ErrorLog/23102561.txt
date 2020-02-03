@@ -1,0 +1,54 @@
+﻿[16:13:50] :: 
+Error Message: The remote name could not be resolved: 'test-hr-ws.pttgc.corp' System.Net.WebException
+Stack Trace:    at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest
+ 
+**************************************************************************************************************************************************************************************************************
+
+[18:01:41] :: 
+Error Message: An error occurred while updating the entries. See the inner exception for details. System.Data.Entity.Infrastructure.DbUpdateException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at admin_user_info_update.SaveData(CSaveData data) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\admin_user_info_update.aspx.cs:line 780
+ 
+*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[19:57:23] :: 
+Error Message: Sequence contains no matching element System.InvalidOperationException
+Stack Trace:    at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)   at UserAcc.Login(String sUserName, String sPassword, String sMode) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\App_Code\UserAcc.cs:line 83   at login.Login(String sUserName, String sPassword, String sMode) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\login.aspx.cs:line 61
+ 
+****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[19:57:29] :: 
+Error Message: Sequence contains no matching element System.InvalidOperationException
+Stack Trace:    at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)   at UserAcc.Login(String sUserName, String sPassword, String sMode) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\App_Code\UserAcc.cs:line 83   at login.Login(String sUserName, String sPassword, String sMode) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\login.aspx.cs:line 61
+ 
+****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[19:58:04] :: 
+Error Message: Sequence contains no matching element System.InvalidOperationException
+Stack Trace:    at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)   at UserAcc.Login(String sUserName, String sPassword, String sMode) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\App_Code\UserAcc.cs:line 83   at login.Login(String sUserName, String sPassword, String sMode) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\login.aspx.cs:line 61
+ 
+****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[19:58:10] :: 
+Error Message: Sequence contains no matching element System.InvalidOperationException
+Stack Trace:    at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)   at UserAcc.Login(String sUserName, String sPassword, String sMode) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\App_Code\UserAcc.cs:line 83   at login.Login(String sUserName, String sPassword, String sMode) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\login.aspx.cs:line 61
+ 
+****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[19:58:59] :: 
+Error Message: Sequence contains no matching element System.InvalidOperationException
+Stack Trace:    at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)   at UserAcc.Login(String sUserName, String sPassword, String sMode) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\App_Code\UserAcc.cs:line 83   at login.Login(String sUserName, String sPassword, String sMode) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\login.aspx.cs:line 61
+ 
+****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[19:59:25] :: 
+Error Message: Sequence contains no matching element System.InvalidOperationException
+Stack Trace:    at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)   at UserAcc.Login(String sUserName, String sPassword, String sMode) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\App_Code\UserAcc.cs:line 83   at login.Login(String sUserName, String sPassword, String sMode) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\login.aspx.cs:line 61
+ 
+****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[19:59:37] :: 
+Error Message: Sequence contains no matching element System.InvalidOperationException
+Stack Trace:    at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)   at UserAcc.Login(String sUserName, String sPassword, String sMode) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\App_Code\UserAcc.cs:line 83   at login.Login(String sUserName, String sPassword, String sMode) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\login.aspx.cs:line 61
+ 
+****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+

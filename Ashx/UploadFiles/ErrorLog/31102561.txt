@@ -1,0 +1,12 @@
+﻿[07:42:09] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at epi_input_materials.saveToDB(CSaveToDB arrData)
+ 
+**********************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[07:42:10] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at epi_input_materials.saveToDB(CSaveToDB arrData)
+ 
+**********************************************************************************************************************************************************************************************************************************************************************************************************************************
+

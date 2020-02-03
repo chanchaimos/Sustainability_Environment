@@ -1,0 +1,72 @@
+﻿[13:45:25] :: 
+Error Message: The remote name could not be resolved: 'test-hr-ws.pttgc.corp' System.Net.WebException
+Stack Trace:    at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest
+ 
+**************************************************************************************************************************************************************************************************************
+
+[14:15:03] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at admin_operation_type_update.SaveData(DataSave itemSave) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\admin_operation_type_update.aspx.cs:line 275
+ 
+*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[14:15:18] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at admin_operation_type_update.SaveData(DataSave itemSave) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\admin_operation_type_update.aspx.cs:line 275
+ 
+*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[14:25:43] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at admin_operation_type_update.SaveData(DataSave itemSave) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\admin_operation_type_update.aspx.cs:line 276
+ 
+*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[14:26:02] :: 
+Error Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. System.Data.Entity.Validation.DbEntityValidationException
+Stack Trace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()   at admin_operation_type_update.SaveData(DataSave itemSave) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\admin_operation_type_update.aspx.cs:line 276
+ 
+*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[21:18:06] :: 
+Error Message: Input string was not in a correct format. System.FormatException
+Stack Trace:    at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)   at System.Double.Parse(String s)   at epi_input_materials.SumAll(String[] M) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\epi_input_materials.aspx.cs:line 787   at epi_input_materials.saveToDB(CSaveToDB arrData) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\epi_input_materials.aspx.cs:line 583
+ 
+***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[21:18:20] :: 
+Error Message: Object reference not set to an instance of an object. System.NullReferenceException
+Stack Trace:    at epi_input_materials.saveToDB(CSaveToDB arrData) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\epi_input_materials.aspx.cs:line 399
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************
+
+[21:18:34] :: 
+Error Message: Object reference not set to an instance of an object. System.NullReferenceException
+Stack Trace:    at epi_input_materials.saveToDB(CSaveToDB arrData) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\epi_input_materials.aspx.cs:line 399
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************
+
+[21:18:57] :: 
+Error Message: Object reference not set to an instance of an object. System.NullReferenceException
+Stack Trace:    at epi_input_materials.saveToDB(CSaveToDB arrData) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\epi_input_materials.aspx.cs:line 399
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************
+
+[21:19:15] :: 
+Error Message: Object reference not set to an instance of an object. System.NullReferenceException
+Stack Trace:    at epi_input_materials.saveToDB(CSaveToDB arrData) in d:\Project\PTT ICT\2018\PTTGC Environmental\Develop\SourceCode\epi_input_materials.aspx.cs:line 399
+ 
+************************************************************************************************************************************************************************************************************************************************************************************************
+
+[21:32:14] :: 
+Error Message: Cannot convert null to a value type. System.InvalidOperationException
+Stack Trace:    at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object
+ 
+**************************************************************************************************************************************************************************************************************************************************************************************
+
+[23:19:23] :: 
+Error Message: Cannot convert null to a value type. System.InvalidOperationException
+Stack Trace:    at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object
+ 
+**************************************************************************************************************************************************************************************************************************************************************************************
+

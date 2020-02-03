@@ -1,0 +1,24 @@
+﻿[14:56:57] :: 
+Error Message: Type 'sysGlobalClass TRetunrLoadData' is not supported for deserialization of an array. System.InvalidOperationException
+Stack Trace:    at System.Web.Script.Serialization.ObjectConverter.ConvertListToObject(IList list, Type type, JavaScriptSerializer serializer, Boolean throwOnError, IList
+ 
+**************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[14:57:31] :: 
+Error Message: Type 'sysGlobalClass TRetunrLoadData' is not supported for deserialization of an array. System.InvalidOperationException
+Stack Trace:    at System.Web.Script.Serialization.ObjectConverter.ConvertListToObject(IList list, Type type, JavaScriptSerializer serializer, Boolean throwOnError, IList
+ 
+**************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[14:57:39] :: 
+Error Message: Type 'sysGlobalClass TRetunrLoadData' is not supported for deserialization of an array. System.InvalidOperationException
+Stack Trace:    at System.Web.Script.Serialization.ObjectConverter.ConvertListToObject(IList list, Type type, JavaScriptSerializer serializer, Boolean throwOnError, IList
+ 
+**************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+[14:57:58] :: 
+Error Message: Type 'sysGlobalClass TRetunrLoadData' is not supported for deserialization of an array. System.InvalidOperationException
+Stack Trace:    at System.Web.Script.Serialization.ObjectConverter.ConvertListToObject(IList list, Type type, JavaScriptSerializer serializer, Boolean throwOnError, IList
+ 
+**************************************************************************************************************************************************************************************************************************************************************************************************************************************
+

@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/_MP_EPI_FORMS.master" AutoEventWireup="true" CodeFile="_MP_Intensity.master.cs" Inherits="_MP_Intensity" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="Server">
+    <style>
+        .ctxtRight {
+            text-align: right;
+        }
+
+        .cStyleDivTrash {
+            background-color: #ffdfda !important;
+            cursor: pointer;
+        }
+
+        .cExStyle {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="Server">
+
+    <div  id="divExport">
+        <div class="row">
+                    <div class="col-xs-12 col-md-6 text-left" style="margin-bottom: 5px;" id="">
+            <a style="font-size: 24px;" title="Helper Intensity denominator" href="Helper_Indicator.aspx?ind=6&&prd=0"  target="_blank" ><i class="fas fa-question-circle"></i></a>
+        </div>
+        <div class="col-xs-12 col-md-6 text-right-lg text-right-md text-left-sm" style="margin-bottom: 5px;">
+            <button type="button" onclick="ShowDeviate();" class="btn btn-info" title="Deviate History"><i class="fas fa-comments"></i></button>
+            <button type="button" onclick="ShowHistory();" class="btn btn-info" id="btnHistory" title="History"><i class="fas fa-comment-alt"></i></button>
+            <button type="button" id="btnExport" class="btn btn-success">Export</button>
+        </div>
+        </div>
+
+
+    </div>
+    <div id="dvContent">
+    </div>
+    <div>
+        <div id="dvRemark" class="col-lg-12" style="margin-top: 1rem;"></div>
+    </div>
+
+    <div id="dvFile" style="display: none;">
+        <div class="col-xs-12">
+            <div class="panel panel-info">
+                <div class="panel-heading" style="cursor: pointer" data-toggle="collapse" data-parent="#divContent1" href="#divBoxOtherFile">
+                    <i class="glyphicon glyphicon-file"></i>&nbsp;Attach File
+                </div>
+                <div id="divBoxOtherFile" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-6 NoPRMS">
+                                <input type="file" id="fulOther" name="fulOther" />
+                            </div>
+                            <div class="col-xs-6 NoPRMS">
+                                <span class="text-red">Maximum size 10MB / File, Allowed File Type: .jpg, .jpeg, .png, .xls, .xlsx, .pdf, .txt, .doc, .docx, .ppt, .pptx, .rar, .zip</span>
+                            </div>
+                            <div class="col-xs-12">
+                                <div id="divGridOtherFile">
+                                    <table id="tblOtherFile" class="table dataTable table-responsive table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th class="dt-head-center" style="width: 10%">No.</th>
+                                                <th class="dt-head-center" style="width: 50%">File Name</th>
+                                                <th class="dt-head-center" style="width: 30%">File Description</th>
+                                                <th class="dt-head-center NoPRMS" style="width: 10%">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cphScript" runat="Server">
+    <asp:HiddenField ID="hdfPermission" runat="server" />
+    <asp:HiddenField ID="hdfsRoleID" runat="server" />
+    <script src="Scripts/IntensityJs.js"></script>
+    <asp:ContentPlaceHolder ID="cphScript" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
